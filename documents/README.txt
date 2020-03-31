@@ -1,0 +1,1 @@
+The documents directory will be used to place all documentation related to the project.
