@@ -1,0 +1,43 @@
+{
+	"user": {
+		"username": "aauger",
+		"password": "secret",
+		"firstName": "April",
+		"lastName": "Auger",
+		"phoneNumber": "916-555-4585",
+		"address": "1234 Test Drive, Sacramento, CA 95826",
+		"email": "april@mywebsite.com",
+		"isDisabled": false,
+		"role": "standard",
+		"securityQuestions": [
+			{
+				"text": "Security question 1",
+				"isDisabled": false
+			},
+			{
+				"text": "Security question 2",
+				"isDisabled": false
+			}
+		],
+		"date_created": "04/03/2020",
+		"date_modified": "04/03/2020",
+		"invoice": [
+			{
+				"_id": "123456",
+				"lineItems": [
+					{
+						"title": "Spyware Removal",
+						"price": 50
+					},
+					{
+						"title": "Software Installation",
+						"price": 40
+					}
+				],
+				"total": 90,
+				"username": "aauger",
+				"orderDate": "04/03/2020"
+			}
+		]
+	}
+}
