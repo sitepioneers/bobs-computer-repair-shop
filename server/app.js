@@ -14,6 +14,9 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
+const UserApi = require('./routes/user-api');
+const SessionApi = require('./routes/security-api');
+const SecurityQuestionApi = require('./routes/security-question-api');
 
 /**
  * App configurations
@@ -43,12 +46,16 @@ mongoose.connect(conn, {
 }).then(() => {
   console.debug(`Connection to the database instance was successful`);
 }).catch(err => {
-  console.log(`MongoDB Error: ${err.message}`)
+  console.log(`MongoDB Error: ${err.message}`);
 }); // end mongoose connection
 
+
 /**
- * API(s)
+ * Security Questions API(s)
  */
+app.use('/api/users', UserApi);
+app.use('/api/session', SessionApi);
+app.use('/api/security-questions', SecurityQuestionApi);
 
 /**
  * Create and start server
