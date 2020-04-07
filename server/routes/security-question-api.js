@@ -17,7 +17,7 @@ const router = express.Router();
  *  Params: callback function
  *  API to find all security questions not marked disabled
  */
-router.get('/api/security-questions', function(req, res, next){
+router.get('/', function(req, res, next){
 	SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, securityQuestions) {
 		if (err) {
 			console.log(err);
@@ -34,7 +34,7 @@ router.get('/api/security-questions', function(req, res, next){
  *  Params: id, callback function
  *  API to find a security question by ID
  */
-router.get('/api/security-questions/:id', function(req, res, next){
+router.get('/:id', function(req, res, next){
 	SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestions) {
 		if (err) {
 			console.log(err);
@@ -51,7 +51,7 @@ router.get('/api/security-questions/:id', function(req, res, next){
  *  Params: callback function
  *  API to create a security question
  */
-router.post('/api/security-questions', function(req, res, next){
+router.post('/', function(req, res, next){
 	let = sq = {
 		text: req.body.text
 	};
@@ -72,7 +72,7 @@ router.post('/api/security-questions', function(req, res, next){
  *  Params: id, callback function
  *  API to update a security question
  */
-router.put('/api/security-questions/:id', function(req, res, next){
+router.put('/:id', function(req, res, next){
 	SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion) {
 		if (err) {
 			console.log(err);
@@ -101,7 +101,7 @@ router.put('/api/security-questions/:id', function(req, res, next){
  *  Params: id, callback function
  *  API to delete a security question
  */
-router.delete('/api/security-questions/:id', function(req, res, next){
+router.delete('/:id', function(req, res, next){
 	SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion) {
 		if (err) {
 			console.log(err);

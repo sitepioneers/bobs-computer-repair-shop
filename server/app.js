@@ -27,6 +27,9 @@ app.use(bodyParser.urlencoded({'extended': true}));
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../dist/bcrs')));
 app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
+app.use('/api/users', UserApi);
+app.use('/api/session', SessionApi);
+app.use('/api/security-questions', SecurityQuestionApi);
 
 /**
  * Variables
@@ -48,14 +51,6 @@ mongoose.connect(conn, {
 }).catch(err => {
   console.log(`MongoDB Error: ${err.message}`);
 }); // end mongoose connection
-
-
-/**
- * Security Questions API(s)
- */
-app.use('/api/users', UserApi);
-app.use('/api/session', SessionApi);
-app.use('/api/security-questions', SecurityQuestionApi);
 
 /**
  * Create and start server

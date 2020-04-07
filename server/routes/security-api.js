@@ -18,7 +18,7 @@ router = express.Router();
  *  Params: callback function
  *  API to sign a user into the application
  */
-router.post('/api/sesssion/signin', function(req, res, next) {
+router.post('/signin', function(req, res, next) {
 	User.findOne({'username': req.body.username}, function(err, user) {
 		if(err) {
 			console.log(err);
