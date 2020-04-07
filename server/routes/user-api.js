@@ -68,6 +68,7 @@ router.post('/', function(req, res, next) {
 		email: req.body.email,
 		isDisabled: req.body.isDisabled,
 		role: req.body.role,
+		securityQuestions: req.body.securityQuestions,
 		date_created:  new Date(),
 		date_modified: new Date()
 	};
@@ -103,14 +104,13 @@ router.put('/:id', function (req, res, next) {
 			console.log(user);
 
 			user.set({
-				password: hashedPassword,
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
 				phoneNumber: req.body.phoneNumber,
 				address: req.body.address,
 				email: req.body.email,
-				isDisabled: req.body.isDisabled,
 				role: req.body.role,
+				securityQuestions: req.body.securityQuestions,
 				date_modified: new Date()
 			});
 
