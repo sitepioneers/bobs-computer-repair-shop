@@ -27,16 +27,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavComponent } from './shared/nav/nav.component';
 import { AboutComponent } from './pages/about/about.component';
+import { MatTableModule } from '@angular/material/table'
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
 import { SecurityQuestionDetailComponent } from './pages/security-question-detail/security-question-detail.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
-import { SecurityQuestionSigninComponent } from './pages/security-question-signin/security-question-signin.component';
-import { SecurityQuestionUserListComponent } from './pages/security-question-user-list/security-question-user-list.component';
-import { SecurityQuestionUserDetailsComponent } from './pages/security-question-user-details/security-question-user-details.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SecurityQuestionDeleteDialogComponent } from './dialogs/security-question-delete-dialog/security-question-delete-dialog.component';
+import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-delete-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [
@@ -49,13 +50,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 		SecurityQuestionCreateComponent,
 		SecurityQuestionDetailComponent,
 		SecurityQuestionListComponent,
-		SecurityQuestionSigninComponent,
-		SecurityQuestionUserListComponent,
-		SecurityQuestionUserDetailsComponent,
 		UserListComponent,
 		UserDetailsComponent,
 		SigninComponent,
-		NotFoundComponent
+		NotFoundComponent,
+		SecurityQuestionDeleteDialogComponent,
+		UserDeleteDialogComponent
 	],
 	imports: [
 		BrowserModule,
@@ -69,7 +69,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 		MatButtonModule,
 		MatIconModule,
 		MatCardModule,
-		MatFormFieldModule
+		MatFormFieldModule,
+		MatTableModule,
+		MatDialogModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
