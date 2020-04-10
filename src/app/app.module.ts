@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
-import { HomeComponent } from './pages/home/home.component';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,6 +28,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavComponent } from './shared/nav/nav.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MatTableModule } from '@angular/material/table'
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { HomeComponent } from './pages/home/home.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
 import { SecurityQuestionDetailComponent } from './pages/security-question-detail/security-question-detail.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
@@ -37,7 +41,6 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SecurityQuestionDeleteDialogComponent } from './dialogs/security-question-delete-dialog/security-question-delete-dialog.component';
 import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-delete-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [
@@ -57,6 +60,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 		SecurityQuestionDeleteDialogComponent,
 		UserDeleteDialogComponent
 	],
+	entryComponents: [UserDeleteDialogComponent, SecurityQuestionDeleteDialogComponent],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
@@ -71,6 +75,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 		MatCardModule,
 		MatFormFieldModule,
 		MatTableModule,
+		MatInputModule,
 		MatDialogModule
 	],
 	providers: [],

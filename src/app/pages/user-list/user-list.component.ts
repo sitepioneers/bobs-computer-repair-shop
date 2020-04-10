@@ -1,3 +1,10 @@
+/*
+ *  Title: user.list.component.ts
+ *  Author: April Auger, Wendy Portillo, Thip Rattanavilay
+ *  Date: 10 April 2020
+ *  Description: Functionality for the user list component.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { UserDeleteDialogComponent } from '../../dialogs/user-delete-dialog/user-delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';

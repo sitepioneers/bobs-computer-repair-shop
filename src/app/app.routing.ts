@@ -5,7 +5,6 @@
  *  Description: The routes for the BCRS application.
  */
 
-
 import { Routes } from '@angular/router';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { AuthLayoutComponent} from './shared/auth-layout/auth-layout.component';

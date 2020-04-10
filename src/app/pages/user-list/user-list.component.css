@@ -1,0 +1,16 @@
+.mat-header-cell {
+	color: #555555;
+	font-weight: 700;
+}
+
+.mat-header-cell, .mat-cell {
+    padding-right: 1rem;
+}
+
+.mat-row:nth-child(even) {
+    background-color: #fff;
+}
+
+.mat-row:nth-child(odd) {
+    background-color: #f4f4f4;
+}
