@@ -8,6 +8,7 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
 }
 
 .navbar-container {
@@ -15,6 +16,18 @@ body {
 }
 
 .container-fluid.no-padding {
-	padding-left: 0;
-	padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.mat-toolbar.mat-primary {
+    margin-bottom: 2.5rem;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
 }
