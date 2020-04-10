@@ -1,12 +1,13 @@
-<div fxFlex style="text-align: center;">
-  <h1 mat-dialog-title>Bob's Computer Repair Shop - Confirmation Dialog</h1>
-  <div mat-dialog-content>
-    <h3>You have elected to delete the following Security Question: </h3>
-    <h4>{{questionId}}</h4>
-    <p>This cannot be undone!</p>
-  </div>
-  <div mat-dialog-actions>
-    <button mat-button color="primary" (click)="onCancel()">Cancel</button>
-    <button mat-button color="warn" (click)="delete()">Delete</button>
-  </div>
+<h2 mat-dialog-title>Confirmation Dialog</h2>
+
+<div mat-dialog-content>
+    <p>Are you sure you want to remove question: <strong>{{questionId}}</strong> from the system?</p>
+    <small style="color:#bf546a">WARNING: This cannot be undone!</small>
+</div>
+
+<hr>
+
+<div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close="cancel" color="primary">No Thanks</button>
+    <button mat-raised-button mat-dialog-close="confirm" color="accent" cdkFocusInitial>Accept</button>
 </div>
