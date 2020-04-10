@@ -1,1 +1,12 @@
-<p>security-question-delete-dialog works!</p>
+<div fxFlex style="text-align: center;">
+  <h1 mat-dialog-title>Bob's Computer Repair Shop - Confirmation Dialog</h1>
+  <div mat-dialog-content>
+    <h3>You have elected to delete the following Security Question: </h3>
+    <h4>{{questionId}}</h4>
+    <p>This cannot be undone!</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="onCancel()">Cancel</button>
+    <button mat-button color="warn" (click)="delete()">Delete</button>
+  </div>
+</div>
