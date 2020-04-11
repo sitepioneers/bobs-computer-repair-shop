@@ -34,7 +34,7 @@ app.use('/api/security-questions', SecurityQuestionApi);
 /**
  * Variables
  */
-const port = 3000; // server port
+const port = process.env.PORT || 3000;
 
 // TODO: This line will need to be replaced with your actual database connection string
 const conn = 'mongodb+srv://aauger:wNoz7FuS2dYd2aHb@buwebdev-cluster-1-bzl71.mongodb.net/bcrs?retryWrites=true&w=majority';
@@ -56,5 +56,5 @@ mongoose.connect(conn, {
  * Create and start server
  */
 http.createServer(app).listen(port, function() {
-  console.log(`Application started and listening on port: ${port}`)
+  console.log(`Application started and listening on port: ${port}`);
 }); // end http create server function
