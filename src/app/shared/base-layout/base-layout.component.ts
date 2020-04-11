@@ -1,3 +1,10 @@
+/*
+ *  Title: bas-layout.component.ts
+ *  Author: April Auger, Wendy Portillo, Thip Rattanavilay
+ *  Date: 11 April 2020
+ *  Description: The base-layout component for the BCRS application.
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
