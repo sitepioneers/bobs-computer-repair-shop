@@ -53,16 +53,17 @@ router.get('/:id', function(req, res, next){
  */
 router.post('/', function(req, res, next){
 	let = sq = {
-		text: req.body.text
+		text: req.body.text,
+		isDisabled: req.body.isDisabled
 	};
 
-	SecurityQuestion.create({'_id': req.params.id}, function(err, securityQuestion) {
+	SecurityQuestion.create(sq, function(err, securityQuestion) {
 		if (err) {
 			console.log(err);
 			return next(err);
 		} else {
 			console.log(securityQuestion);
-			res.json(securityQuestions);
+			res.json(securityQuestion);
 		}
 	});
 });
@@ -79,11 +80,11 @@ router.put('/:id', function(req, res, next){
 			return next(err);
 		} else {
 			console.log(securityQuestion);
-			SecurityQuestion.set({
+			securityQuestion.set({
 				text: req.body.text
 			});
 
-			SecurityQuestion.save(function(err, securityQuestion){
+			securityQuestion.save(function(err, securityQuestion){
 				if(err){
 					console.log(err);
 					return next(err);
@@ -113,7 +114,7 @@ router.delete('/:id', function(req, res, next){
 					isDisabled: true
 				});
 
-				SecurityQuestion.save(function(err, securityQuestion){
+				securityQuestion.save(function(err, securityQuestion){
 					if(err){
 						console.log(err);
 						return next(err);
