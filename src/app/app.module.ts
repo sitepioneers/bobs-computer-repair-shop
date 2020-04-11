@@ -12,7 +12,8 @@ import { AppRoutes } from './app.routing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-import { SessionGuard } from './shared/guards/session.guard.js';
+import { SessionGuard } from './shared/guards/session.guard';
+
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,40 +41,43 @@ import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-del
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		BaseLayoutComponent,
-		AuthLayoutComponent,
-		HomeComponent,
-		NavComponent,
-		AboutComponent,
-		SecurityQuestionCreateComponent,
-		SecurityQuestionDetailComponent,
-		SecurityQuestionListComponent,
-		UserListComponent,
-		UserDetailsComponent,
-		SigninComponent,
-		NotFoundComponent,
-		SecurityQuestionDeleteDialogComponent,
-		UserDeleteDialogComponent
-	],
-	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
-		HttpClientModule,
-		FormsModule,
-		ReactiveFormsModule,
-		RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'}),
-		FlexLayoutModule,
-		MatToolbarModule,
-		MatButtonModule,
-		MatIconModule,
-		MatCardModule,
-		MatFormFieldModule,
-		MatTableModule,
-		MatDialogModule
-	],
-	providers: [],
-	bootstrap: [AppComponent]
+declarations: [
+AppComponent,
+BaseLayoutComponent,
+AuthLayoutComponent,
+HomeComponent,
+NavComponent,
+AboutComponent,
+SecurityQuestionCreateComponent,
+SecurityQuestionDetailComponent,
+SecurityQuestionListComponent,
+UserListComponent,
+UserDetailsComponent,
+SigninComponent,
+NotFoundComponent,
+SecurityQuestionDeleteDialogComponent,
+UserDeleteDialogComponent
+],
+imports: [
+BrowserModule,
+BrowserAnimationsModule,
+HttpClientModule,
+FormsModule,
+ReactiveFormsModule,
+RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'}),
+FlexLayoutModule,
+MatToolbarModule,
+MatButtonModule,
+MatIconModule,
+MatCardModule,
+MatFormFieldModule,
+MatTableModule,
+MatDialogModule
+],
+providers: [
+    CookieService,
+    SessionGuard,
+  ],
+bootstrap: [AppComponent]
 })
 export class AppModule { }
