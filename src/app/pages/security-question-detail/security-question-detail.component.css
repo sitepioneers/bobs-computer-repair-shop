@@ -1,14 +1,14 @@
+.mat-card-title{
+  padding-left: 15px;
+
+}
+
 .mat-elevation-z8 {
   max-width: 500px;
   margin: 260px;
   padding: 95px;
-}
-
-input {
-  width: 88%;
 
 }
-
 .mat-card-actions {
 margin: 70px;
 }

@@ -7,7 +7,7 @@
           <br>
           <br>
           <mat-card-subtitle>
-              <button mat-raised-button routerLink="/security-questions/create/new" color="accent">Create New </button>
+              <button mat-raised-button routerLink="/security-questions/create/new" color="primary">Create New </button>
           </mat-card-subtitle>
 
           <br />
@@ -26,10 +26,10 @@
 
                       <td mat-cell *matCellDef="let element">
                           <button mat-icon-button routerLink="/security-questions/{{element._id}}">
-                              <mat-icon color="accent">edit</mat-icon>
+                              <mat-icon color="primary">edit</mat-icon>
                           </button>
                           <button mat-icon-button (click)="delete(element._id)">
-                              <mat-icon color="accent">delete</mat-icon>
+                              <mat-icon color="accent">delete_forever</mat-icon>
                           </button>
                       </td>
                   </ng-container>
