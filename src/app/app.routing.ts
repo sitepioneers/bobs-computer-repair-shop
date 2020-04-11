@@ -17,6 +17,7 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
 import { SecurityQuestionDetailComponent } from './pages/security-question-detail/security-question-detail.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { SignoutComponent } from './pages/signout/signout.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const AppRoutes: Routes = [
@@ -24,40 +25,39 @@ export const AppRoutes: Routes = [
 		path: '',
 		component: BaseLayoutComponent,
 		children: [
-		{
-			path: '',
-			component: HomeComponent,
-			// canActivate: [SessionGuard]
-		},
-		{
-			path: 'about',
-			component: AboutComponent
-		},
-		{
-			path: 'users',
-			component: UserListComponent,
-			// canActivate: [SessionGuard]
-		},
-		{
-			path: 'users/:userId',
-			component: UserDetailsComponent,
-			// canActivate: [SessionGuard]
-		},
-		{
-			path: 'security-questions',
-			component: SecurityQuestionListComponent,
-			// canActivate: [SessionGuard]
-		},
-		{
-			path: 'security-questions/:questionId',
-			component: SecurityQuestionDetailComponent,
-			// canActivate: [SessionGuard]
-		},
-		{
-			path: 'security-questions/create/new',
-			component: SecurityQuestionCreateComponent,
-			// canActivate: [SessionGuard]
-		}
+			{
+				path: '',
+				component: HomeComponent,
+			},
+			{
+				path: 'about',
+				component: AboutComponent
+			},
+			{
+				path: 'users',
+				component: UserListComponent,
+				canActivate: [SessionGuard]
+			},
+			{
+				path: 'users/:userId',
+				component: UserDetailsComponent,
+				canActivate: [SessionGuard]
+			},
+			{
+				path: 'security-questions',
+				component: SecurityQuestionListComponent,
+				canActivate: [SessionGuard]
+			},
+			{
+				path: 'security-questions/:questionId',
+				component: SecurityQuestionDetailComponent,
+				canActivate: [SessionGuard]
+			},
+			{
+				path: 'security-questions/create/new',
+				component: SecurityQuestionCreateComponent,
+				canActivate: [SessionGuard]
+			}
 		]
 	},
 	{
@@ -67,6 +67,11 @@ export const AppRoutes: Routes = [
 			{
 				path: 'signin',
 				component: SigninComponent
+			},
+			{
+				path: 'signout',
+				component: SignoutComponent,
+				canActivate: [SessionGuard]
 			}
 		],
 	},

@@ -21,6 +21,7 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -41,6 +42,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SecurityQuestionDeleteDialogComponent } from './dialogs/security-question-delete-dialog/security-question-delete-dialog.component';
 import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-delete-dialog.component';
+import { SignoutComponent } from './pages/signout/signout.component';
 
 @NgModule({
 	declarations: [
@@ -58,7 +60,8 @@ import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-del
 		SigninComponent,
 		NotFoundComponent,
 		SecurityQuestionDeleteDialogComponent,
-		UserDeleteDialogComponent
+		UserDeleteDialogComponent,
+		SignoutComponent
 	],
 	entryComponents: [UserDeleteDialogComponent, SecurityQuestionDeleteDialogComponent],
 	imports: [
@@ -70,6 +73,7 @@ import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-del
 		RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'}),
 		FlexLayoutModule,
 		MatToolbarModule,
+		MatMenuModule,
 		MatButtonModule,
 		MatIconModule,
 		MatCardModule,
@@ -78,7 +82,7 @@ import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-del
 		MatInputModule,
 		MatDialogModule
 	],
-	providers: [],
+	providers: [CookieService, SessionGuard],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

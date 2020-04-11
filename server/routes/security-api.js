@@ -28,6 +28,7 @@ router.post('/signin', function(req, res, next) {
 
 			// If the user exists
 			if(user) {
+				// let passwordIsValid = bcrypt.compareSync(req.body.password, user.password); // Compare hashed password against signed in password
 				let passwordIsValid = bcrypt.compareSync(req.body.password, user.password); // Compare hashed password against signed in password
 
 				// The password is valid
