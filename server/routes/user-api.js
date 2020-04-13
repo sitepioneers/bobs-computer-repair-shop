@@ -55,7 +55,7 @@ router.get('/:id', function(req, res, next){
  *  Params: callback function
  *  API to create a user
  */
-router.post('/', function(req, res, next) {
+router.post('/create', function(req, res, next) {
 	let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
 
 	let u = {

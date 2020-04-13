@@ -19,6 +19,7 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignoutComponent } from './pages/signout/signout.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
 
 export const AppRoutes: Routes = [
 	{
@@ -36,6 +37,11 @@ export const AppRoutes: Routes = [
 			{
 				path: 'users',
 				component: UserListComponent,
+				canActivate: [SessionGuard]
+			},
+			{
+				path: 'users/create',
+				component: UserCreateComponent,
 				canActivate: [SessionGuard]
 			},
 			{

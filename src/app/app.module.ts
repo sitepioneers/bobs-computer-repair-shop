@@ -43,6 +43,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SecurityQuestionDeleteDialogComponent } from './dialogs/security-question-delete-dialog/security-question-delete-dialog.component';
 import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-delete-dialog.component';
 import { SignoutComponent } from './pages/signout/signout.component';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
 
 @NgModule({
 	declarations: [
@@ -61,7 +62,8 @@ import { SignoutComponent } from './pages/signout/signout.component';
 		NotFoundComponent,
 		SecurityQuestionDeleteDialogComponent,
 		UserDeleteDialogComponent,
-		SignoutComponent
+		SignoutComponent,
+		UserCreateComponent
 	],
 	entryComponents: [UserDeleteDialogComponent, SecurityQuestionDeleteDialogComponent],
 	imports: [

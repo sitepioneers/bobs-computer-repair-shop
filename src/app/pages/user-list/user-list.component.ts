@@ -42,7 +42,7 @@ export class UserListComponent implements OnInit {
 
 		dialogRef.afterClosed().subscribe(result => {
 			if(result === 'confirm') {
-				this.http.delete('/api/users' + userId).subscribe(res => {
+				this.http.delete('/api/users/' + userId).subscribe(res => {
 					console.log('User deleted');
 					this.users = this.users.filter(u => u._id !== userId);
 				});

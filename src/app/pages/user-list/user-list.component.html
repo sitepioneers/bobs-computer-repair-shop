@@ -1,5 +1,9 @@
-<div fxLayout="column"><br />
-<h1>Users</h1>
+<div fxLayout="column">
+	<br />
+	<h1>Users</h1>
+
+	<div class="btn-create"><button mat-raised-button routerLink="/users/create" color="primary">Create User</button></div>
+
 	<div *ngIf="users">
 		<table mat-table [dataSource]="users">
 			<ng-container matColumnDef="username">
@@ -47,4 +51,5 @@
 			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 		</table>
+	</div>
 </div>
