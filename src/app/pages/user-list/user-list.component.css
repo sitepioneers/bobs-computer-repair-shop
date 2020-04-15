@@ -1,9 +1,10 @@
 .mat-header-cell {
-	color: #555555;
-	font-weight: 700;
+    color: #555555;
+    font-weight: 700;
 }
 
-.mat-header-cell, .mat-cell {
+.mat-header-cell,
+.mat-cell {
     padding-right: 1rem;
 }
 
@@ -16,5 +17,9 @@
 }
 
 table {
-	width: 100%;
+    width: 100%;
+}
+
+.mat-dialog-content {
+    overflow: inherit;
 }

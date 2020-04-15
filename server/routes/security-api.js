@@ -14,6 +14,23 @@ const bcrypt = require('bcryptjs');
 router = express.Router();
 
 /*
+ *  VerifyUser
+ *  Params: username, callback function
+ *  API to verify a username
+ */
+router.get('/verify/users/:username', function(req, res, next){
+	User.findOne({'username': req.params.username}, function(err, user) {
+		if (err) {
+			console.log(err);
+			return next(err);
+		} else {
+			console.log(user);
+			res.json(user);
+		}
+	});
+});
+
+/*
  *  Signin
  *  Params: callback function
  *  API to sign a user into the application
