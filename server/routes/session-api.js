@@ -31,6 +31,73 @@ router.get('/verify/users/:username', function(req, res, next){
 });
 
 /*
+ *  RegisterUser
+ *  Params: callback function
+ *  API to register a new user.
+ */
+router.post('/register', function(req, res, next) {
+	// Search the database for the requested username.
+	User.findOne({'username': req.body.username}, function(err, user) {
+		// If there's an error, console and return the error.
+		if (err) {
+			console.log(err);
+			return next(err);
+		}
+		// If the username wasn't found, register the new user.
+		else {
+			if (!user) {
+				let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+
+				// Object storing the user's information
+				let userObject = {
+					username: req.body.username,
+					password: hashedPassword,
+					firstName: req.body.firstName,
+					lastName: req.body.lastName,
+					phoneNumber: req.body.phoneNumber,
+					address: req.body.address,
+					email: req.body.email,
+					isDisabled: req.body.isDisabled,
+					role: req.body.role,
+					securityQuestions: req.body.securityQuestions,
+					date_created:  new Date()
+				};
+
+				// Store the object as a user document in the database.
+				User.create(userObject, function(err, newUser) {
+					// If there's an error, console and return the error.
+					if (err) {
+						console.log(err);
+						return next(err);
+					}
+					// Once the user document has been saved in the database, return a 200 status code.
+					else {
+						console.log(newUser);
+
+						res.status(200).send({
+							type: 'success',
+							auth: true,
+							username: newUser.username,
+							time_stamp: new Date()
+						});
+					}
+				});
+			}
+			// The requested username was not available, prompt the user to select a different username.
+			else {
+				console.log(`The username ${req.body.username} is not available, please select a different username.`);
+				res.status(500).send({
+					type: 'error',
+					text: `The username ${req.body.username} is not available, please select a different username.`,
+					auth: false,
+					time_stamp: new Date()
+				});
+			}
+		}
+	});
+});
+
+/*
  *  Signin
  *  Params: callback function
  *  API to sign a user into the application
