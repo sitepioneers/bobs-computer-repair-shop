@@ -13,6 +13,9 @@ const bcrypt = require('bcryptjs');
 // Configurations
 router = express.Router();
 
+// Variables
+const saltRounds = 10; // Default salt rounds for hashing algorithm
+
 /*
  *  VerifyUser
  *  Params: username, callback function
