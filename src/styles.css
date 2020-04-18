@@ -41,3 +41,6 @@ h5 {
 	margin-bottom: 1.75rem;
 }
 
+.mat-dialog-content {
+	min-height: 150px;
+}
