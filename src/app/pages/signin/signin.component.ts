@@ -1,9 +1,15 @@
+/*
+ *  Title: signin.component.ts
+ *  Author: Wendy Portillo
+ *  Date: 11 April 2020
+ *  Description: The signin component for the BCRS application.
+ */
 
-import {Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CookieService} from 'ngx-cookie-service';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 // Component Detail
 @Component({
@@ -16,13 +22,13 @@ export class SigninComponent implements OnInit {
 	Form: FormGroup;
 	errorMessage: string;
 
-	constructor(private router: Router, private cookieService: CookieService, private fb: FormBuilder, private http: HttpClient) {}
+	constructor(private router: Router, private cookieService: CookieService, private fb: FormBuilder, private http: HttpClient) { }
 
 	ngOnInit() {
 		this.Form = this.fb.group({
-		username: [null, Validators.compose([Validators.required])],
-		password: [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]+$')])]
-	});
+			username: [null, Validators.compose([Validators.required])],
+			password: [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]+$')])]
+		});
 	}
 
 	// Signin Function
@@ -43,8 +49,8 @@ export class SigninComponent implements OnInit {
 			} else {
 				// User is not authenticated and we should return the error message
 				this.errorMessage = res['text'];
-		}
-	});
-}
+			}
+		});
+	}
 }
 

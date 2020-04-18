@@ -1,50 +1,57 @@
+/*
+ *  Title: Security Question Detail
+ *  Author: Thip Rattanavilay
+ *  Date: 10 April 2020
+ *  Description: The security question detail component.
+ */
+
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 
 @Component({
-  selector: 'app-security-question-detail',
+	selector: 'app-security-question-detail',
 
-  templateUrl: './security-question-detail.component.html',
-  styleUrls: ['./security-question-detail.component.css']
+	templateUrl: './security-question-detail.component.html',
+	styleUrls: ['./security-question-detail.component.css']
 })
 export class SecurityQuestionDetailComponent implements OnInit {
-  question: any;
-  questionId: string;
-  form: FormGroup;
+	question: any;
+	questionId: string;
+	form: FormGroup;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder,private router: Router) {
-    this.questionId = this.route.snapshot.paramMap.get('questionId');
+	constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private router: Router) {
+		this.questionId = this.route.snapshot.paramMap.get('questionId');
 
-    this.http.get('/api/security-questions/'+ this.questionId).subscribe(res =>{
-      this.question = res;
-    }, err =>{
-      console.log(err);
-    },() => {
-      this.form.controls.text.setValue(this.question.text);
-    })
-  }
+		this.http.get('/api/security-questions/' + this.questionId).subscribe(res => {
+			this.question = res;
+		}, err => {
+			console.log(err);
+		}, () => {
+			this.form.controls.text.setValue(this.question.text);
+		})
+	}
 
-  ngOnInit() {
-    this.form = this.fb.group({
-      text: [null, Validators.compose([Validators.required])]
-    });
-  }
+	ngOnInit() {
+		this.form = this.fb.group({
+			text: [null, Validators.compose([Validators.required])]
+		});
+	}
 
-  //saves question
-  saveQuestion(){
-    this.http.put('/api/security-questions/'+ this.questionId,{
-      text: this.form.controls.text.value,
-    }).subscribe(res =>{
-      this.router.navigate(['/security-questions']);
-    });
-  }
+	//saves question
+	saveQuestion() {
+		this.http.put('/api/security-questions/' + this.questionId, {
+			text: this.form.controls.text.value,
+		}).subscribe(res => {
+			this.router.navigate(['/security-questions']);
+		});
+	}
 
-  //cancels and routes back to security questions page
-  cancel(){
-    this.router.navigate(['/security-questions']);
-  }
+	//cancels and routes back to security questions page
+	cancel() {
+		this.router.navigate(['/security-questions']);
+	}
 
 }

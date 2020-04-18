@@ -17,15 +17,18 @@ router = express.Router();
 const saltRounds = 10; // Default salt rounds for hashing algorithm
 
 /*
- *  VerifyUser
+ *  Name: VerifyUser
  *  Params: username, callback function
- *  API to verify a username
+ *  Description: API to verify a username.
  */
 router.get('/verify/users/:username', function(req, res, next){
+	// Search the users database collection for a document with the request username.
 	User.findOne({'username': req.params.username}, function(err, user) {
+		// If there's an error, console and return the error.
 		if (err) {
 			console.log(err);
 			return next(err);
+		// If there are no errors, console and return the user information.
 		} else {
 			console.log(user);
 			res.json(user);
@@ -34,24 +37,25 @@ router.get('/verify/users/:username', function(req, res, next){
 });
 
 /*
- *  RegisterUser
+ *  Name: RegisterUser
  *  Params: callback function
- *  API to register a new user.
+ *  Description: API to register a new user.
  */
 router.post('/register', function(req, res, next) {
-	// Search the database for the requested username.
+	// Search the users database collection for a document with the request username.
 	User.findOne({'username': req.body.username}, function(err, user) {
 		// If there's an error, console and return the error.
 		if (err) {
 			console.log(err);
 			return next(err);
 		}
-		// If the username wasn't found, register the new user.
+		// If the username wasn't found, register the user.
 		else {
 			if (!user) {
+				// Hash the password
 				let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
 
-				// Object storing the user's information
+				// Store the user's information in an object
 				let userObject = {
 					username: req.body.username,
 					password: hashedPassword,
@@ -60,9 +64,9 @@ router.post('/register', function(req, res, next) {
 					phoneNumber: req.body.phoneNumber,
 					address: req.body.address,
 					email: req.body.email,
-					isDisabled: req.body.isDisabled,
 					role: req.body.role,
 					securityQuestions: req.body.securityQuestions,
+					isDisabled: req.body.isDisabled,
 					date_created:  new Date()
 				};
 
@@ -73,7 +77,7 @@ router.post('/register', function(req, res, next) {
 						console.log(err);
 						return next(err);
 					}
-					// Once the user document has been saved in the database, return a 200 status code.
+					// If there are no errors, console the new user information and return a 200 status code.
 					else {
 						console.log(newUser);
 
@@ -86,7 +90,7 @@ router.post('/register', function(req, res, next) {
 					}
 				});
 			}
-			// The requested username was not available, prompt the user to select a different username.
+			// The requested username is not available.
 			else {
 				console.log(`The username ${req.body.username} is not available, please select a different username.`);
 				res.status(500).send({
@@ -101,24 +105,26 @@ router.post('/register', function(req, res, next) {
 });
 
 /*
- *  Signin
+ *  Name: Signin
  *  Params: callback function
- *  API to sign a user into the application
+ *  Description: API to sign a user into the application.
  */
 router.post('/signin', function(req, res, next) {
+	// Search the users database collection for a document with the request username.
 	User.findOne({'username': req.body.username}, function(err, user) {
+		// If there's an error, console and return the error.
 		if(err) {
 			console.log(err);
 			return next(err);
+		// If there are no errors.
 		} else {
 			console.log(user);
 
 			// If the user exists
 			if(user) {
-				// let passwordIsValid = bcrypt.compareSync(req.body.password, user.password); // Compare hashed password against signed in password
 				let passwordIsValid = bcrypt.compareSync(req.body.password, user.password); // Compare hashed password against signed in password
 
-				// The password is valid
+				// If password is valid, send a 200 status code response.
 				if(passwordIsValid) {
 					res.status(200).send({
 						type: 'success',
@@ -126,8 +132,8 @@ router.post('/signin', function(req, res, next) {
 						username: user.username,
 						time_stamp: new Date()
 					});
+				// The password is invalid, console a message and return a 401 status code.
 				} else {
-					// The password is invalid, return a 401 status code message
 					console.log(`The password for username ${req.body.username} is invalid.`);
 
 					res.status(401).send({
@@ -138,7 +144,7 @@ router.post('/signin', function(req, res, next) {
 					});
 				}
 			}
-			// The user doesn't exist
+			// If the user doesn't exist, console a message and retun a 401 status code.
 			else {
 				console.log(`Username: ${req.body.username} has not been registered with our system.`);
 

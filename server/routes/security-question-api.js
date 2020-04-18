@@ -13,9 +13,9 @@ const SecurityQuestion = require('../models/security-question');
 const router = express.Router();
 
 /*
- *  FindAll
+ *  Name: FindAll
  *  Params: callback function
- *  API to find all security questions not marked disabled
+ *  Description: API to find all security questions not marked disabled.
  */
 router.get('/', function(req, res, next){
 	SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, securityQuestions) {
@@ -30,9 +30,9 @@ router.get('/', function(req, res, next){
 });
 
 /*
- *  FindById
+ *  Name: FindById
  *  Params: id, callback function
- *  API to find a security question by ID
+ *  Description: API to find a security question by ID.
  */
 router.get('/:id', function(req, res, next){
 	SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestions) {
@@ -47,9 +47,9 @@ router.get('/:id', function(req, res, next){
 });
 
 /*
- *  CreateSecurityQuestion
+ *  Name: CreateSecurityQuestion
  *  Params: callback function
- *  API to create a security question
+ *  Description: API to create a security question.
  */
 router.post('/', function(req, res, next){
 	let = sq = {
@@ -69,9 +69,9 @@ router.post('/', function(req, res, next){
 });
 
 /*
- *  UpdateSecurityQuestion
+ *  Name: UpdateSecurityQuestion
  *  Params: id, callback function
- *  API to update a security question
+ *  Description: API to update a security question.
  */
 router.put('/:id', function(req, res, next){
 	SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion) {
@@ -98,9 +98,9 @@ router.put('/:id', function(req, res, next){
 });
 
 /*
- *  DeleteSecurityQuestion
+ *  Name: DeleteSecurityQuestion
  *  Params: id, callback function
- *  API to delete a security question
+ *  Description: API to delete a security question.
  */
 router.delete('/:id', function(req, res, next){
 	SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion) {

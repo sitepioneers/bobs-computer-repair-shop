@@ -17,15 +17,18 @@ router = express.Router();
 const saltRounds = 10; // Default salt rounds for hashing algorithm
 
 /*
- *  FindAll
+ *  Name: FindAll
  *  Params: callback function
- *  API to find all users not marked disabled
+ *  Description: API to find all users not marked disabled.
  */
 router.get('/', function(req, res, next){
+	// Search the users database collection for a list of users.
 	User.find({}).where('isDisabled').equals(false).exec(function(err, user) {
+		// If there's an error, console and return the error.
 		if (err) {
 			console.log(err);
 			return next(err);
+		// If no error, console and return the user information.
 		} else {
 			console.log(user);
 			res.json(user);
@@ -34,15 +37,18 @@ router.get('/', function(req, res, next){
 });
 
 /*
- *  FindById API
+ *  Name: FindById API
  *  Params: id, callback function
- *  API to find a user by id
+ *  Description: API to find a user by id.
  */
 router.get('/:id', function(req, res, next){
+	// Search the users database collection for a document with the request id.
 	User.findOne({'_id': req.params.id}, function(err, user) {
+		// If there's an error, console and return the error.
 		if (err) {
 			console.log(err);
 			return next(err);
+		// If there are no errors, console and return the user information.
 		} else {
 			console.log(user);
 			res.json(user);
@@ -51,14 +57,16 @@ router.get('/:id', function(req, res, next){
 });
 
 /*
- *  CreateUser
+ *  Name: CreateUser
  *  Params: callback function
- *  API to create a user
+ *  Description: API to create a user. (API replaced by RegisterUser in session-api.js.)
  */
 router.post('/create', function(req, res, next) {
+	// Hash the password
 	let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
 
-	let u = {
+	// Store the user's information in an object
+	let userObject = {
 		username: req.body.username,
 		password: hashedPassword,
 		firstName: req.body.firstName,
@@ -73,10 +81,12 @@ router.post('/create', function(req, res, next) {
 		date_modified: new Date()
 	};
 
-	User.create(u, function(err, newUser) {
+	// Store the object as a user document in the database.
+	User.create(userObject, function(err, newUser) {
 		if(err) {
 			console.log(err);
 			return next(err);
+		// If there are no errors, console the new user information and return a 200 status code.
 		} else {
 			console.log(newUser);
 
@@ -91,18 +101,22 @@ router.post('/create', function(req, res, next) {
 });
 
 /*
- *  UpdateUser
+ *  Name: UpdateUser
  *  Params: id, callback function
- *  API to update a user
+ *  Description: API to update a user.
  */
 router.put('/:id', function (req, res, next) {
+	// Search the users database collection for a document with the request id.
 	User.findOne({'_id': req.params.id}, function (err, user) {
+		// If there's an error, console and return the error.
 		if(err) {
 			console.log(err);
 			return next(err);
+		// If the id was found, update the user information.
 		} else {
 			console.log(user);
 
+			// Set the new values for the user document
 			user.set({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
@@ -114,10 +128,13 @@ router.put('/:id', function (req, res, next) {
 				date_modified: new Date()
 			});
 
+			// Save the new values in the database
 			user.save(function(err, savedUser) {
+				// If there's an error, console and return the error.
 				if(err) {
 					console.log(err);
 					return next(err);
+				// If there are no errors, console the user information and return the information in JSON.
 				} else {
 					console.log(savedUser);
 					res.json(savedUser);
@@ -128,25 +145,32 @@ router.put('/:id', function (req, res, next) {
 });
 
 /*
- *  DeleteUser
+ *  Name: DeleteUser
  *  Params: id, callback function
- *  API to delete a user
+ *  Description: API to delete a user
  */
 router.delete('/:id', function(req, res, next) {
+	// Search the users database collection for a document with the request id.
 	User.findOne({'_id': req.params.id}, function(err, user) {
+		// If there's an error, console and return the error.
 		if(err) {
 			console.log(err);
 			return next(err);
+		// If there are no errors, mark the record as disabled.
 		} else {
 			if(user) {
+				// Set the user document isDisabled object property to true
 				user.set({
 					isDisabled: true
 				});
 
+				// Save the updated user property
 				user.save(function(err, savedUser) {
+					// If there's an error, console and return the error.
 					if (err) {
 						console.log(err);
 						return next(err);
+					// If there are no errors, console the updated user information and return the information in JSON.
 					} else {
 						console.log(savedUser);
 						res.json(savedUser);

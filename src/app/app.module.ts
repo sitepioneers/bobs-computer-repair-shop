@@ -7,7 +7,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavComponent } from './shared/nav/nav.component';
@@ -31,6 +31,9 @@ import { AboutComponent } from './pages/about/about.component';
 import { MatTableModule } from '@angular/material/table'
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 
 import { HomeComponent } from './pages/home/home.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
@@ -43,7 +46,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SecurityQuestionDeleteDialogComponent } from './dialogs/security-question-delete-dialog/security-question-delete-dialog.component';
 import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-delete-dialog.component';
 import { SignoutComponent } from './pages/signout/signout.component';
-import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
 	declarations: [
@@ -63,7 +66,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 		SecurityQuestionDeleteDialogComponent,
 		UserDeleteDialogComponent,
 		SignoutComponent,
-		UserCreateComponent
+		RegisterComponent
 	],
 	entryComponents: [UserDeleteDialogComponent, SecurityQuestionDeleteDialogComponent],
 	imports: [
@@ -72,7 +75,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 		HttpClientModule,
 		FormsModule,
 		ReactiveFormsModule,
-		RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'}),
+		RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled' }),
 		FlexLayoutModule,
 		MatToolbarModule,
 		MatMenuModule,
@@ -82,7 +85,10 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 		MatFormFieldModule,
 		MatTableModule,
 		MatInputModule,
-		MatDialogModule
+		MatDialogModule,
+		MatStepperModule,
+		MatListModule,
+		MatSelectModule
 	],
 	providers: [CookieService, SessionGuard],
 	bootstrap: [AppComponent]

@@ -7,7 +7,7 @@
 
 import { Routes } from '@angular/router';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
-import { AuthLayoutComponent} from './shared/auth-layout/auth-layout.component';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SessionGuard } from './shared/guards/session.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -19,7 +19,7 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignoutComponent } from './pages/signout/signout.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const AppRoutes: Routes = [
 	{
@@ -37,11 +37,6 @@ export const AppRoutes: Routes = [
 			{
 				path: 'users',
 				component: UserListComponent,
-				canActivate: [SessionGuard]
-			},
-			{
-				path: 'users/create',
-				component: UserCreateComponent,
 				canActivate: [SessionGuard]
 			},
 			{
@@ -78,7 +73,11 @@ export const AppRoutes: Routes = [
 				path: 'signout',
 				component: SignoutComponent,
 				canActivate: [SessionGuard]
-			}
+			},
+			{
+				path: 'register',
+				component: RegisterComponent
+			},
 		],
 	},
 	{
