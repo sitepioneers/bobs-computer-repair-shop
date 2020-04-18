@@ -1,3 +1,6 @@
 .padding-left {
 	padding-left: 1rem;
 }
+  ::ng-deep .mat-dialog-container {
+    overflow-y: hidden !important;
+}

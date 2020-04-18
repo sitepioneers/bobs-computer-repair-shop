@@ -117,12 +117,12 @@ export class RegisterComponent implements OnInit {
 			}
 			// The user is not authenticated and a message will be returned to the user.
 			else {
-				this.errorMessage = 'There was an problem creating your account.';
+				this.errorMessage = res['text'];
 			}
 		}, err => {
 			// There was an error and a message will be returned to the user.
 			console.log(err);
-			this.errorMessage = 'There was a problem creating your account.';
+			this.errorMessage = err.error.text;
 		});
 	}
 
