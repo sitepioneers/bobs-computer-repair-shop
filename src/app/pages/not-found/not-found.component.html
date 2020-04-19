@@ -1,22 +1,33 @@
+<!-- ============================================
+; Title:          not-found.component.html
+; Author:         April Auger, Wendy Portillo, Thip Rattanavilay
+; Date:           16 April 2020
+; Description:    not found page 404
+;=========================================== -->
+
 <div fxLayout="column">
 
-	<app-nav></app-nav>
+  <div flLayout="column">
+    <mat-card fxLayout style="margin-top: 15%; width: 50%; margin-left: 25%;" class="mat-elevation-z8">
+      <mat-card-title style="text-align:justify; font-size: 36px; " class="mat-headline">Oops! Page Not Found</mat-card-title><br>
 
-	<div class="hdr">
-		<div class="container">
-			<tr>
-				<td class="col-md-12">
-					<h1>Not Found</h1>
-				</td>
-			</tr>
-		</div>
-	</div>
+      <mat-card-content style="text-align: center">
+
+        <button mat-raised-button color="primary"  routerLink="/"> Return to dashboard</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
 	<div class="container">
 		<tr>
 			<td class="col-md-12">
-				The content you were looking could not be found.
-			</td>
-		</tr>
-	</div>
+        <div>
+           <!-- add image and attribution -->
 
-</div>
+          <img class='-image' src="../../../assets/404page.png" alt="OOPS SORRY 404" width="100%" height="100%">
+          <!-- attribute: <a href="https://www.freepik.com/free-photos-vectors/business">Business vector created by freepik - www.freepik.com</a>-->
+
+      </div>
+
+  </div>
+        </div>

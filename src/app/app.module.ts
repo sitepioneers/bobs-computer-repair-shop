@@ -50,6 +50,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
 import {VerifyUsernameFormComponent} from './pages/verify-username-form/verify-username-form.component';
+import { ServerErrorComponent } from './pages/server-error/server-error.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
 	declarations: [
@@ -72,7 +74,9 @@ import {VerifyUsernameFormComponent} from './pages/verify-username-form/verify-u
 		RegisterComponent,
 		ResetPasswordFormComponent,
     VerifySecurityQuestionsFormComponent,
-    VerifyUsernameFormComponent
+    VerifyUsernameFormComponent,
+    ServerErrorComponent,
+    ContactComponent
 	],
 	entryComponents: [UserDeleteDialogComponent, SecurityQuestionDeleteDialogComponent],
 	imports: [
