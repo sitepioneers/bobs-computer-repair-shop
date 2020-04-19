@@ -167,31 +167,19 @@ router.post('/signin', function(req, res, next) {
  *  By Thip Rattanavilay
  */
 router.post('/verify/users/:username/security-questions', function (req, res, next) {
-  const answerToSecurityQuestion1 = req.body.answerToSecurityQuestion1; // post answer question 1
-  console.log(answerToSecurityQuestion1);
-
-  const answerToSecurityQuestion2 = req.body.answerToSecurityQuestion2; // post answer question 2
-  console.log(answerToSecurityQuestion2);
-
-  const answerToSecurityQuestion3 = req.body.answerToSecurityQuestion3; // post answer question 3
-  console.log(answerToSecurityQuestion3);
+  const answerToSecurityQuestion1 = req.body.answerToSecurityQuestion1.trim(); // post answer question 1
+  const answerToSecurityQuestion2 = req.body.answerToSecurityQuestion2.trim(); // post answer question 2
+  const answerToSecurityQuestion3 = req.body.answerToSecurityQuestion3.trim(); // post answer question 3
 
   User.findOne({'username': req.params.username}, function (err, user) {
     if (err) {
       console.log(err);
       return next(err);
     } else {
-      console.log(user);
 
-      let answer1IsValid = answerToSecurityQuestion1 === user.securityQuestions[0].answer; //  valid answer question 1
-      console.log(answer1IsValid);
-
-      let answer2IsValid = answerToSecurityQuestion2 === user.securityQuestions[1].answer; //  valid answer question 2
-      console.log(answer2IsValid);
-
-      let answer3IsValid = answerToSecurityQuestion3 === user.securityQuestions[2].answer; //  valid answer question 3
-      console.log(answer3IsValid);
-
+	  let answer1IsValid = answerToSecurityQuestion1 === user.securityQuestions[2].answer.trim(); //  valid answer question 1
+      let answer2IsValid = answerToSecurityQuestion2 === user.securityQuestions[1].answer.trim(); //  valid answer question 2
+      let answer3IsValid = answerToSecurityQuestion3 === user.securityQuestions[0].answer.trim(); //  valid answer question 3
       if (answer1IsValid && answer2IsValid && answer3IsValid) { // ensure answers are valid
         res.status(200).send({
           type: 'success', // success
