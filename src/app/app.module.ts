@@ -47,6 +47,9 @@ import { SecurityQuestionDeleteDialogComponent } from './dialogs/security-questi
 import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-delete-dialog.component';
 import { SignoutComponent } from './pages/signout/signout.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
+import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
+import {VerifyUsernameFormComponent} from './pages/verify-username-form/verify-username-form.component';
 
 @NgModule({
 	declarations: [
@@ -66,7 +69,10 @@ import { RegisterComponent } from './pages/register/register.component';
 		SecurityQuestionDeleteDialogComponent,
 		UserDeleteDialogComponent,
 		SignoutComponent,
-		RegisterComponent
+		RegisterComponent,
+		ResetPasswordFormComponent,
+    VerifySecurityQuestionsFormComponent,
+    VerifyUsernameFormComponent
 	],
 	entryComponents: [UserDeleteDialogComponent, SecurityQuestionDeleteDialogComponent],
 	imports: [
