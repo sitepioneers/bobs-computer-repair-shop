@@ -27,6 +27,11 @@ app.use(bodyParser.urlencoded({'extended': true}));
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../dist/bcrs')));
 app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
+
+
+/**
+ * API(s)
+ */
 app.use('/api/users', UserApi);
 app.use('/api/session', SessionApi);
 app.use('/api/security-questions', SecurityQuestionApi);
