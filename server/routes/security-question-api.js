@@ -128,4 +128,35 @@ router.delete('/:id', function(req, res, next){
 	});
 });
 
+/*
+ *  Name: FindSecurityQuestionsByIds
+ *  Params: id, callback function
+ *  Description: This API will lookup security questions by security question Ids
+ *  By Thip Rattanavilay
+ */
+router.post('/find-by-ids', function (req, res, next) { // const three security question Ids
+  const question1 = req.body.question1;
+  const question2 = req.body.question2;
+  const question3 = req.body.question3;
+
+  //aggregates to chain the security question Ids
+  SecurityQuestion.find({
+
+  //passing-in three security question Ids
+    $or: [
+      {'_id': question1}, // id question1
+      {'_id': question2}, // id question2
+      {'_id': question3}  // id question3
+    ]
+  }).exec(function (err, securityQuestions) {
+    if (err) {
+      console.log(err);
+      return next(err); //return to function
+    } else {
+      console.log(securityQuestions);
+      res.json(securityQuestions);
+    }
+  })
+});
+
 module.exports = router;
