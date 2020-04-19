@@ -11,6 +11,7 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { SessionGuard } from './shared/guards/session.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component'
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
@@ -18,6 +19,7 @@ import { SecurityQuestionDetailComponent } from './pages/security-question-detai
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignoutComponent } from './pages/signout/signout.component';
+import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
@@ -36,6 +38,10 @@ export const AppRoutes: Routes = [
 			{
 				path: 'about',
 				component: AboutComponent
+      },
+      {
+				path: 'contact',
+				component: ContactComponent
 			},
 			{
 				path: 'users',
@@ -76,7 +82,15 @@ export const AppRoutes: Routes = [
 				path: 'signout',
 				component: SignoutComponent,
 				canActivate: [SessionGuard]
-			},
+      },
+      {
+        path: '500',
+        component: ServerErrorComponent
+      },
+       {
+            path: '404',
+            component: NotFoundComponent
+          },
 			{
 				path: 'register',
 				component: RegisterComponent

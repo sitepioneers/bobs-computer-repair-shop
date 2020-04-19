@@ -1,0 +1,41 @@
+/*
+============================================
+; Author: Wendy Portillo
+; Date:   2/29/2020
+; Description: web-425/Bob's Computer Repair
+;===========================================
+*/
+
+#main {
+  max-width: 60%;
+  width: 100%;
+  padding: 30px;
+  margin: 0px auto;
+}
+
+.contact-card {
+  height: 100%;
+  margin-top: 25px;
+}
+
+mat-card {
+  border: 1px solid black;
+  height: 100%;
+}
+
+mat-form-field {
+  width: 90%;
+}
+
+h1 {
+  padding: 3px;
+  background-color: #4556A9;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+}
+
+button {
+  width: 20%;
+  margin-top: 5px;
+}
