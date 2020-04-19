@@ -1,0 +1,22 @@
+.mat-card-top {
+  margin: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.mat-form-field {
+  width: auto;
+}
+
+.return-link {
+  text-decoration: none;
+}
+
+.return-link:hover {
+  text-decoration: underline;
+}
+
+p {
+  color: rgb(146, 133, 133);
+
+}
