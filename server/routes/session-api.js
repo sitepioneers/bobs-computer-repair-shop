@@ -159,4 +159,88 @@ router.post('/signin', function(req, res, next) {
 	});
 });
 
+ /*
+ *  Name: VerifySecurityQuestions
+ *  Params: Verify three security questions
+ *  Description: POST, This API will accept the answers to three security questions,
+ *  look up the user by their username, and verify the passed-in answers against their saved answers.
+ *  By Thip Rattanavilay
+ */
+router.post('/verify/users/:username/security-questions', function (req, res, next) {
+  const answerToSecurityQuestion1 = req.body.answerToSecurityQuestion1; // post answer question 1
+  console.log(answerToSecurityQuestion1);
+
+  const answerToSecurityQuestion2 = req.body.answerToSecurityQuestion2; // post answer question 2
+  console.log(answerToSecurityQuestion2);
+
+  const answerToSecurityQuestion3 = req.body.answerToSecurityQuestion3; // post answer question 3
+  console.log(answerToSecurityQuestion3);
+
+  User.findOne({'username': req.params.username}, function (err, user) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(user);
+
+      let answer1IsValid = answerToSecurityQuestion1 === user.securityQuestions[0].answer; //  valid answer question 1
+      console.log(answer1IsValid);
+
+      let answer2IsValid = answerToSecurityQuestion2 === user.securityQuestions[1].answer; //  valid answer question 2
+      console.log(answer2IsValid);
+
+      let answer3IsValid = answerToSecurityQuestion3 === user.securityQuestions[2].answer; //  valid answer question 3
+      console.log(answer3IsValid);
+
+      if (answer1IsValid && answer2IsValid && answer3IsValid) { // ensure answers are valid
+        res.status(200).send({
+          type: 'success', // success
+          auth: true
+        })
+      } else {
+        res.status(200).send({
+          type: 'error', // error
+          auth: false
+        })
+      }
+    }
+  })
+});
+
+
+/*
+ *  Name: ResetPassword
+ *  Params: post to reset password after verify
+ *  Description: This API will lookup the user by their username, salt and hash the new password, and update the user document
+ *  By Thip Rattanavilay
+ */
+router.post('/users/:username/reset-password', function (req, res, next) {
+  const password = req.body.password;
+
+  User.findOne({'username': req.params.username}, function (err, user) {
+    if (err) {
+      console.log(err); // error log
+      return next(err); // return to function
+    } else {
+      console.log(user);
+
+      let hashedPassword = bcrypt.hashSync(password, saltRounds); // salt/hash the password
+
+      user.set({
+        password: hashedPassword // hash password
+      });
+
+      user.save(function (err, user) { //save user function
+        if (err) {
+          console.log(err);
+          return next(err);
+        } else {
+          console.log(user);
+          res.json(user);
+        }
+      })
+    }
+  })
+});
+
 module.exports = router;
