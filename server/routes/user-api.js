@@ -181,4 +181,22 @@ router.delete('/:id', function(req, res, next) {
 	});
 });
 
+ /*
+ *  Name: FindSelectedSecurityQuestions
+ *  Params: get username with selected security question
+ *  Description: This API will lookup a user by their username and return an array of their selected security questions
+ *  By Thip Rattanavilay
+ */
+router.get('/:username/security-questions', function (req, res, next) {
+  User.findOne({'username': req.params.username}, function (err, user) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(user);
+      res.json(user.securityQuestions);
+    }
+  })
+});
+
 module.exports = router;
