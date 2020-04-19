@@ -52,9 +52,9 @@ router.get('/:id', function(req, res, next){
  *  Description: API to create a security question.
  */
 router.post('/', function(req, res, next){
-	let = sq = {
-		text: req.body.text,
-		isDisabled: req.body.isDisabled
+	let sq = {
+    text: req.body.text,
+    isDisabled: req.body.isDisabled
 	};
 
 	SecurityQuestion.create(sq, function(err, securityQuestion) {
