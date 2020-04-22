@@ -12,7 +12,8 @@ import { AppRoutes } from './app.routing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-import { SessionGuard } from './shared/guards/session.guard.js';
+import { SessionGuard } from './shared/guards/session.guard';
+import { RoleGuard } from './shared/guards/role.guard';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,9 +50,11 @@ import { SignoutComponent } from './pages/signout/signout.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
-import {VerifyUsernameFormComponent} from './pages/verify-username-form/verify-username-form.component';
+import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { PurchasesByServiceComponent } from './pages/purchases-by-service/purchases-by-service.component';
+import { InvoiceSummaryDialogComponent } from './pages/invoice-summary-dialog/invoice-summary-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -73,10 +76,12 @@ import { ContactComponent } from './pages/contact/contact.component';
 		SignoutComponent,
 		RegisterComponent,
 		ResetPasswordFormComponent,
-    VerifySecurityQuestionsFormComponent,
-    VerifyUsernameFormComponent,
-    ServerErrorComponent,
-    ContactComponent
+		VerifySecurityQuestionsFormComponent,
+		VerifyUsernameFormComponent,
+		ServerErrorComponent,
+		ContactComponent,
+		PurchasesByServiceComponent,
+		InvoiceSummaryDialogComponent
 	],
 	entryComponents: [UserDeleteDialogComponent, SecurityQuestionDeleteDialogComponent],
 	imports: [
@@ -100,7 +105,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 		MatListModule,
 		MatSelectModule
 	],
-	providers: [CookieService, SessionGuard],
+	providers: [CookieService, SessionGuard, RoleGuard],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import { Routes } from '@angular/router';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SessionGuard } from './shared/guards/session.guard';
+import { RoleGuard } from './shared/guards/role.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component'
@@ -25,6 +26,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
 import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
 import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
+import { PurchasesByServiceComponent } from './pages/purchases-by-service/purchases-by-service.component';
+import { InvoiceSummaryDialogComponent } from './pages/invoice-summary-dialog/invoice-summary-dialog.component';
 
 export const AppRoutes: Routes = [
 	{
@@ -38,8 +41,8 @@ export const AppRoutes: Routes = [
 			{
 				path: 'about',
 				component: AboutComponent
-      },
-      {
+			},
+			{
 				path: 'contact',
 				component: ContactComponent
 			},
@@ -67,7 +70,16 @@ export const AppRoutes: Routes = [
 				path: 'security-questions/create/new',
 				component: SecurityQuestionCreateComponent,
 				canActivate: [SessionGuard]
-			}
+			},
+			{
+				path: "purchases",
+				component: PurchasesByServiceComponent,
+				canActivate: [RoleGuard]
+			},
+			{
+				path: "invoice-summary",
+				component: InvoiceSummaryDialogComponent
+			},
 		]
 	},
 	{
@@ -82,15 +94,15 @@ export const AppRoutes: Routes = [
 				path: 'signout',
 				component: SignoutComponent,
 				canActivate: [SessionGuard]
-      },
-      {
-        path: '500',
-        component: ServerErrorComponent
-      },
-       {
-            path: '404',
-            component: NotFoundComponent
-          },
+			},
+			{
+				path: '500',
+				component: ServerErrorComponent
+			},
+			{
+				path: '404',
+				component: NotFoundComponent
+			},
 			{
 				path: 'register',
 				component: RegisterComponent
