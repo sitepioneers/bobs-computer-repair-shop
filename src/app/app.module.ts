@@ -35,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { ChartModule } from 'primeng/chart';
 
 import { HomeComponent } from './pages/home/home.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
@@ -83,7 +84,11 @@ import { InvoiceSummaryDialogComponent } from './pages/invoice-summary-dialog/in
 		PurchasesByServiceComponent,
 		InvoiceSummaryDialogComponent
 	],
-	entryComponents: [UserDeleteDialogComponent, SecurityQuestionDeleteDialogComponent],
+	entryComponents: [
+		UserDeleteDialogComponent,
+		SecurityQuestionDeleteDialogComponent,
+		InvoiceSummaryDialogComponent
+	],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
@@ -103,7 +108,8 @@ import { InvoiceSummaryDialogComponent } from './pages/invoice-summary-dialog/in
 		MatDialogModule,
 		MatStepperModule,
 		MatListModule,
-		MatSelectModule
+		MatSelectModule,
+		ChartModule
 	],
 	providers: [CookieService, SessionGuard, RoleGuard],
 	bootstrap: [AppComponent]

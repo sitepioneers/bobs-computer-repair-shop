@@ -14,7 +14,7 @@ export class PurchasesByServiceComponent implements OnInit {
 
 	constructor(private http: HttpClient) {
 		// Call the purchases-graph API
-		this.http.get('/api/invoices/purchases-graph').subscribe(res => {
+		this.http.get('/api/invoice/purchases-graph').subscribe(res => {
 			// map the response data to the purchases variable
 			this.purchases = res;
 

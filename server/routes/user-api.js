@@ -200,3 +200,25 @@ router.get('/:username/security-questions', function (req, res, next) {
 });
 
 module.exports = router;
+
+
+/*
+ *  Name: FindUserRole
+ *  Params: id, callback function
+ *  Description: API to update a user.
+ *  Author: April Auger
+ */
+router.get('/:username/role', function(req, res, next) {
+	// Search the users database collection for a document with the requested username.
+	User.findOne({'username': req.params.username}, function(err, user) {
+		// If there's an error, console and return the error.
+		if (err) {
+			console.log('Error with FindUserRole API: ' + err);
+			return next(err);
+		// If ther are no errors, return the user's role.
+		} else {
+			console.log('FindUserRole API: ' + user);
+			res.json(user.role);
+		}
+	});
+})

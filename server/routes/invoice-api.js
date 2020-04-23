@@ -50,7 +50,7 @@ router.post('/:username', function(req, res, next) {
 
 /*
  *  Name: FindPurchasesByService
- *  Params: username, callback function
+ *  Params: callback function
  *  Description: API to find purchases made by specific services.
  */
 router.get('/purchases-graph', function(req, res, next) {

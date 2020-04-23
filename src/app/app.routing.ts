@@ -72,7 +72,7 @@ export const AppRoutes: Routes = [
 				canActivate: [SessionGuard]
 			},
 			{
-				path: "purchases",
+				path: "purchases-graph",
 				component: PurchasesByServiceComponent,
 				canActivate: [RoleGuard]
 			},
