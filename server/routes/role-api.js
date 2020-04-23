@@ -29,7 +29,7 @@ router.get('/',function(req,res,next) {
 /**
 * FindById
 */
-router.get('/', function(req,res,next) {
+router.get('/:roleId', function(req,res,next) {
     Role.find({}, function(err,roles) {
         if (err) {
             console.log(err);
