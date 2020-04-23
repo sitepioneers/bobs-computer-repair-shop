@@ -7,7 +7,7 @@ Description: CRUD APIs for Roles
 
 
 const express = require('express');
-const Role = require('../db-models/role');
+const Role = require('../models/role');
 
 const router = express.Router();
 
