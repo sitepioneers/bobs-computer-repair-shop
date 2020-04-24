@@ -199,8 +199,63 @@ router.get('/:username/security-questions', function (req, res, next) {
   })
 });
 
-module.exports = router;
+ /*
+ *  Name: UpdateUser (Read one user)
+ *  Params: put users :id
+ *  Description: This API will need to be updated to accept user roles
+ *  By Thip Rattanavilay
+ */
+router.get('/api/users/:id', (req, res, next) => {
+  User.findOne({ '_id': req.params.id }, function (err, user) {  // this function will get find one :id
+    console.log('this is a message inside the app get one id on app')
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+    console.log(user);
+    res.json(user);
+    }
+  });
+});
 
+ /*
+ *  Name: UpdateUser (Update one user)
+ *  Params: put users :id
+ *  Description: This API will need to be updated to accept user roles
+ *  By Thip Rattanavilay
+ */
+router.put('/api/users/:id', (req, res, next) => {
+  User.findOne({ '_id': req.params.id }, function (err, user){
+    console.log(user);
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+
+      console.log(user);
+
+      user.set({
+        firstName: req.body.firstName, // set first name
+        lastName: req.body.lastName,   // set last name
+        phoneNumber: req.body.phoneNumber, // set phone number
+        address: req.body.address, //set address
+        email: req.body.email, // set email
+        role: req.body.role,    // set role
+        date_modified: new Date() // set new date
+      });
+
+      user.save(function (err, savedUser) {
+        if (err) {
+          console.log(err);
+          return next(err);
+        } else {
+          console.log(savedUser);
+          res.json(savedUser);
+        }
+      })
+    }
+  })
+});
 
 /*
  *  Name: FindUserRole
@@ -222,3 +277,5 @@ router.get('/:username/role', function(req, res, next) {
 		}
 	});
 })
+
+module.exports = router;
