@@ -26,19 +26,17 @@ router.get('/',function(req,res,next) {
     })
 });
 
-/**
-* FindById
-*/
-router.get('/:roleId', function(req, res, next) {
-    Role.findOne({'_id': req.params.roleId}, function(err, role) {
-        if (err) {
-            console.log(err);
-            return next (err);
-        } else {
-            console.log(role);
-            res.json(role);
-        }
-    })
+//findRoleById
+router.get('/:roleId',function(req,res,next){
+  Role.findOne({'_id': req.params.roleId},function(err,role){
+      if(err){
+          console.log(err);
+          return next(err);
+      }else{
+          console.log(role);
+          res.json(role);
+      }
+  });
 });
 
 /**
