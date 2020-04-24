@@ -28,6 +28,9 @@ import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-qu
 import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
 import { PurchasesByServiceComponent } from './pages/purchases-by-service/purchases-by-service.component';
 import { InvoiceSummaryDialogComponent } from './pages/invoice-summary-dialog/invoice-summary-dialog.component';
+import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailComponent } from './pages/role-detail/role-detail.component';
 
 export const AppRoutes: Routes = [
 	{
@@ -80,6 +83,21 @@ export const AppRoutes: Routes = [
 				path: "invoice-summary",
 				component: InvoiceSummaryDialogComponent
 			},
+			{
+				path: "roles",
+				component: RoleConfigurationComponent,
+				canActivate: [RoleGuard]
+			},
+			{
+				path: "roles/create",
+				component: RoleCreateComponent,
+				canActivate: [RoleGuard]
+			},
+			{
+				path: "roles/:roleId",
+				component: RoleDetailComponent,
+				canActivate: [RoleGuard]
+			}
 		]
 	},
 	{

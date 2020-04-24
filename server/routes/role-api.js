@@ -15,29 +15,29 @@ const router = express.Router();
 * FindAll
 */
 router.get('/',function(req,res,next) {
-    Role.find({}, function(err,roles) {
+    Role.find({}, function(err, roles) {
         if (err) {
             console.log(err);
             return next (err);
-            } else {
-                console.log(roles);
-                res.json(roles);
-            }
+        } else {
+            console.log(roles);
+            res.json(roles);
+        }
     })
 });
 
 /**
 * FindById
 */
-router.get('/:roleId', function(req,res,next) {
-    Role.find({}, function(err,roles) {
+router.get('/:roleId', function(req, res, next) {
+    Role.findOne({'_id': req.params.roleId}, function(err, role) {
         if (err) {
             console.log(err);
             return next (err);
-            } else {
-                console.log(roles);
-                res.json(roles);
-            }
+        } else {
+            console.log(role);
+            res.json(role);
+        }
     })
 });
 
@@ -48,15 +48,15 @@ router.post('/',function(req,res,next) {
     const r = {
         text: req.body.text
     };
-Role.create(r,function(err, role) {
-    if (err) {
-        console.log(err);
-        return next (err);
-    } else {
-        console.log(role);
-        res.json(role);
-    }
-})
+	Role.create(r, function(err, role) {
+		if (err) {
+			console.log(err);
+			return next (err);
+		} else {
+			console.log(role);
+			res.json(role);
+		}
+	})
 });
 
 //updateRole

@@ -1,10 +1,9 @@
 /*
- *  Title: Security Question Create
- *  Author: April Auger, Wendy Portillo, Thip Rattanavilay
- *  Date: 10 April 2020
- *  Description: The security question create.
+ *  Title: Role Create Component
+ *  Author: April Auger
+ *  Date: 23 April 2020
+ *  Description: Creates new user roles.
  */
-
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,11 +11,11 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-	selector: 'app-security-question-create',
-	templateUrl: './security-question-create.component.html',
-	styleUrls: ['./security-question-create.component.css']
+	selector: 'app-role-create',
+	templateUrl: './role-create.component.html',
+	styleUrls: ['./role-create.component.css']
 })
-export class SecurityQuestionCreateComponent implements OnInit {
+export class RoleCreateComponent implements OnInit {
 
 	constructor(private http: HttpClient, private router: Router, private fb: FormBuilder) { }
 	form: FormGroup;
@@ -28,16 +27,16 @@ export class SecurityQuestionCreateComponent implements OnInit {
 
 	// Create
 	create() {
-		this.http.post('/api/security-questions', {
+		this.http.post('/api/roles', {
 			text: this.form.controls.text.value,
 		}).subscribe(res => {
-			this.router.navigate(['/security-questions']);
+			this.router.navigate(['/roles']);
 		})
 	}
 
 	// Cancel
 	cancel() {
-		this.router.navigate(['/security-questions']);
+		this.router.navigate(['/roles']);
 	}
 
 }

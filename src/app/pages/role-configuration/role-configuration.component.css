@@ -1,0 +1,8 @@
+.btn-create, .mat-card-title {
+	text-align: center;
+}
+
+.mat-column-text {
+    min-width: 200px;
+	max-width: 100%;
+}

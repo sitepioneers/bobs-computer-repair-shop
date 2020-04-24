@@ -1,0 +1,31 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+	<mat-card matcard class="mat-elevation-z8">
+		<mat-card-title>Role Configuration</mat-card-title>
+		<small *ngIf="errorMessage">{{ errorMessage }} </small>
+		<div class="btn-create"><button mat-raised-button routerLink="/roles/create" color="primary">Create Role</button></div>
+
+		<div *ngIf="roles">
+			<table mat-table [dataSource]="roles">
+				<ng-container matColumnDef="text">
+					<th mat-header-cell *matHeaderCellDef>Role</th>
+					<td mat-input mat-cell *matCellDef="let element">{{element.text}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="functions">
+					<th mat-header-cell *matHeaderCellDef>Functions</th>
+					<td mat-cell *matCellDef="let element">
+						<button mat-icon-button routerLink="/roles/{{element._id}}">
+							<mat-icon color="primary">edit</mat-icon>
+						</button>
+						<button mat-icon-button (click)="delete(element._id, element.roleId)">
+							<mat-icon color="warn">delete_forever</mat-icon>
+						</button>
+					</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+		</div>
+	</mat-card>
+</div>

@@ -56,6 +56,10 @@ import { ServerErrorComponent } from './pages/server-error/server-error.componen
 import { ContactComponent } from './pages/contact/contact.component';
 import { PurchasesByServiceComponent } from './pages/purchases-by-service/purchases-by-service.component';
 import { InvoiceSummaryDialogComponent } from './pages/invoice-summary-dialog/invoice-summary-dialog.component';
+import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
+import { RoleDeleteDialogComponent } from './dialogs/role-delete-dialog/role-delete-dialog.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailComponent } from './pages/role-detail/role-detail.component';
 
 @NgModule({
 	declarations: [
@@ -82,10 +86,15 @@ import { InvoiceSummaryDialogComponent } from './pages/invoice-summary-dialog/in
 		ServerErrorComponent,
 		ContactComponent,
 		PurchasesByServiceComponent,
-		InvoiceSummaryDialogComponent
+		InvoiceSummaryDialogComponent,
+		RoleConfigurationComponent,
+		RoleDeleteDialogComponent,
+		RoleCreateComponent,
+		RoleDetailComponent
 	],
 	entryComponents: [
 		UserDeleteDialogComponent,
+		RoleDeleteDialogComponent,
 		SecurityQuestionDeleteDialogComponent,
 		InvoiceSummaryDialogComponent
 	],
