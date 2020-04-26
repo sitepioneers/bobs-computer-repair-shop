@@ -27,7 +27,7 @@ router.post('/:username', function(req, res, next) {
 		orderDate: req.body.orderDate,
 		lineItems: req.body.lineItems,
 		lineItemTotal: req.body.lineItemTotal,
-		laborTotal: req.body.laborTotal,
+		laborAmount: req.body.laborAmount,
 		partsAmount: req.body.partsAmount,
 		total: req.body.total
 	};
