@@ -10,16 +10,16 @@
 
 			<button class="navbar-link" routerLink="/" mat-button>Home</button>
 			<button class="navbar-link" routerLink="/about" mat-button>About</button>
-			<button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
-			<button *ngIf="signedIn" class="navbar-link" routerLink="/users" mat-button>Users</button>
-			<button *ngIf="signedIn" class="navbar-link" routerLink="/roles" mat-button>Roles</button>
-			<button *ngIf="signedIn" class="navbar-link" routerLink="/security-questions" mat-button>Security Questions</button>
+      <button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
+      <button *ngIf="signedIn" class="navbar-link" routerLink="/service" mat-button>Services</button>
+
+
 			<div fxFlex></div>
 
 			<!-- User Profile -->
-			<button *ngIf="!signedIn" class="toolbar__icon-button" mat-icon-button>
+			<!--<button *ngIf="!signedIn" class="toolbar__icon-button" mat-icon-button>
 				<mat-icon routerLink="/session/signin">account_circle</mat-icon>
-			</button>
+			</button> -->
 
 			<div *ngIf="signedIn">
 				<button class="toolbar__icon-button" [matMenuTriggerFor]="menu" mat-icon-button>
@@ -28,8 +28,13 @@
 				<mat-menu #menu="matMenu">
 					<button mat-menu-item>
 						<mat-icon>exit_to_app</mat-icon>
-						<span routerLink="/session/signout" mat-button (click)="signOut()">Sign out</span>
-					</button>
+            <span routerLink="/session/signout" mat-button (click)="signOut()">Sign out</span>
+          </button>
+          <div>
+          <button *ngIf="signedIn" class="navbar-link" routerLink="/security-questions" mat-button>Security Questions</button></div>
+          <div><button *ngIf="signedIn" class="navbar-link" routerLink="/admin" mat-button>Admin Dashboard</button></div>
+          <div><button *ngIf="signedIn" class="navbar-link" routerLink="/roles" mat-button>Roles Configuration</button></div>
+          <div><button *ngIf="signedIn" class="navbar-link" routerLink="/users" mat-button>Users Creation</button></div>
 				</mat-menu>
 			</div>
 		</div>

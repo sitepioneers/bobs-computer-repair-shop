@@ -11,25 +11,25 @@
  // Define a schema
  const Schema = mongoose.Schema;
 
-let InvoiceLineItemSchema = new Schema({
+let lineItemSchema = new Schema({
 	title: { type: String, require: true },
 	price: { type: Number, require: true }
 });
 
-let InvoiceSchema = new Schema({
-	 username: { type: String, require: true },
-	 orderDate: { type: Date, default: new Date(), require: true },
-	 lineItems: [InvoiceLineItemSchema],
-	 lineItemTotal: { type: Number, require: true },
-	 laborTotal: { type: Number, require: true },
-	 partsTotal: { type: Number, require: true },
-	 grandTotal: { type: Number, require: true }
+let invoiceSchema = new Schema({
+  lineItems: [lineItemSchema],
+  partsAmount: {type: Number},
+  laborAmount: {type: Number},
+  lineItemTotal: {type: Number},
+  total: {type: Number},
+  username: {type: String},
+  orderDate: {type: Date}
  }, {
 	 collection: "invoices"
  });
 
  // Attach the InvoiceSchema to the Invoice model
- const Invoice = mongoose.model('Invoice', InvoiceSchema);
+ const Invoice = mongoose.model('Invoice', invoiceSchema);
 
  // Make the model available for other modules to require
  module.exports = Invoice;
