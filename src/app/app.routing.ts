@@ -31,6 +31,8 @@ import { InvoiceSummaryDialogComponent } from './pages/invoice-summary-dialog/in
 import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailComponent } from './pages/role-detail/role-detail.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
 
 export const AppRoutes: Routes = [
 	{
@@ -78,7 +80,12 @@ export const AppRoutes: Routes = [
 				path: "purchases-graph",
 				component: PurchasesByServiceComponent,
 				canActivate: [RoleGuard]
-			},
+      },
+      {
+        path: 'service',
+        component: ServiceRepairComponent,
+        canActivate: [SessionGuard]
+      },
 			{
 				path: "invoice-summary",
 				component: InvoiceSummaryDialogComponent
@@ -97,7 +104,12 @@ export const AppRoutes: Routes = [
 				path: "roles/:roleId",
 				component: RoleDetailComponent,
 				canActivate: [RoleGuard]
-			}
+      },
+      {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [RoleGuard]
+      }
 		]
 	},
 	{

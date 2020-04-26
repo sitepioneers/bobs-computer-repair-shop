@@ -60,6 +60,8 @@ import { RoleConfigurationComponent } from './pages/role-configuration/role-conf
 import { RoleDeleteDialogComponent } from './dialogs/role-delete-dialog/role-delete-dialog.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailComponent } from './pages/role-detail/role-detail.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
 
 @NgModule({
 	declarations: [
@@ -90,7 +92,9 @@ import { RoleDetailComponent } from './pages/role-detail/role-detail.component';
 		RoleConfigurationComponent,
 		RoleDeleteDialogComponent,
 		RoleCreateComponent,
-		RoleDetailComponent
+		RoleDetailComponent,
+		AdminComponent,
+		ServiceRepairComponent
 	],
 	entryComponents: [
 		UserDeleteDialogComponent,
