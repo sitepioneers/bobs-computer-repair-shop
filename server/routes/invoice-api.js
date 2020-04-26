@@ -28,8 +28,8 @@ router.post('/:username', function(req, res, next) {
 		lineItems: req.body.lineItems,
 		lineItemTotal: req.body.lineItemTotal,
 		laborTotal: req.body.laborTotal,
-		partsTotal: req.body.partsTotal,
-		grandTotal: req.body.grandTotal
+		partsAmount: req.body.partsAmount,
+		total: req.body.total
 	};
 
 	console.log(invoice);
