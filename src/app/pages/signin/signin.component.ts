@@ -45,7 +45,7 @@ export class SigninComponent implements OnInit {
 				// User is authenticated and we can grant them access
 				// tslint:disable-next-line: no-string-literal
 				this.cookieService.set('sessionuser', username, 1);
-				this.router.navigate(['/']);
+				this.router.navigate(['/user/profile/' + username]);
 			} else {
 				// User is not authenticated and we should return the error message
 				this.errorMessage = res['text'];

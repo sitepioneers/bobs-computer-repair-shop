@@ -113,7 +113,7 @@ export class RegisterComponent implements OnInit {
 			if (res['auth']) {
 				this.cookieService.set('isAuthenticated', 'true', 1);
 				this.cookieService.set('sessionuser', this.user.username, 1);
-				this.router.navigate(['/users']);
+				this.router.navigate(['/user/profile/' + this.user.username]);
 			}
 			// The user is not authenticated and a message will be returned to the user.
 			else {
