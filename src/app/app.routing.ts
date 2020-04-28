@@ -65,7 +65,7 @@ export const AppRoutes: Routes = [
 			{
 				path: 'users/:userId',
 				component: UserDetailsComponent,
-				canActivate: [RoleGuard]
+				canActivate: [SessionGuard]
 			},
 			{
 				path: 'security-questions',
@@ -85,20 +85,12 @@ export const AppRoutes: Routes = [
 			{
 				path: "purchases-graph",
 				component: PurchasesByServiceComponent,
-<<<<<<< HEAD
 				canActivate: [RoleGuard]
-=======
-				canActivate: [SessionGuard]
->>>>>>> dev
 			},
 			{
 				path: 'service',
 				component: ServiceRepairComponent,
-<<<<<<< HEAD
-				canActivate: [RoleGuard]
-=======
 				canActivate: [SessionGuard]
->>>>>>> dev
 			},
 			{
 				path: "invoice-summary",
