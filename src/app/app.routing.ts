@@ -33,6 +33,7 @@ import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailComponent } from './pages/role-detail/role-detail.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const AppRoutes: Routes = [
 	{
@@ -50,6 +51,11 @@ export const AppRoutes: Routes = [
 			{
 				path: 'contact',
 				component: ContactComponent
+			},
+			{
+				path: 'user/profile/:username',
+				component: ProfileComponent,
+				canActivate: [SessionGuard]
 			},
 			{
 				path: 'users',
@@ -79,12 +85,20 @@ export const AppRoutes: Routes = [
 			{
 				path: "purchases-graph",
 				component: PurchasesByServiceComponent,
+<<<<<<< HEAD
 				canActivate: [RoleGuard]
+=======
+				canActivate: [SessionGuard]
+>>>>>>> dev
 			},
 			{
 				path: 'service',
 				component: ServiceRepairComponent,
+<<<<<<< HEAD
 				canActivate: [RoleGuard]
+=======
+				canActivate: [SessionGuard]
+>>>>>>> dev
 			},
 			{
 				path: "invoice-summary",

@@ -5,20 +5,21 @@ Date: April 20, 2020
 Description: CRUD APIs for Roles
 */
 
-
-const express = require('express');
+//import modules
+const express = require('express'); //import express
 const Role = require('../models/role');
 
 const router = express.Router();
 
-/**
-* FindAll
-*/
+//FindAll
 router.get('/',function(req,res,next) {
+  	// Find All roles in database collection for a document with the request username.
     Role.find({}, function(err, roles) {
+    // If there's an error, console and return the error.
         if (err) {
             console.log(err);
             return next (err);
+    // If there are no errors, console and return the user information.
         } else {
             console.log(roles);
             res.json(roles);
@@ -28,20 +29,23 @@ router.get('/',function(req,res,next) {
 
 //findRoleById
 router.get('/:roleId',function(req,res,next){
+  	// Search the users database collection for a document with the request username.
   Role.findOne({'_id': req.params.roleId},function(err,role){
+    		// If there's an error, console and return the error.
       if(err){
           console.log(err);
           return next(err);
-      }else{
+      }
+					// If there's an error, console and return the error.
+          else{
           console.log(role);
           res.json(role);
       }
   });
 });
 
-/**
-* CreateRole
-*/
+
+//createRole
 router.post('/',function(req,res,next) {
     const r = {
         text: req.body.text
@@ -50,7 +54,8 @@ router.post('/',function(req,res,next) {
 		if (err) {
 			console.log(err);
 			return next (err);
-		} else {
+    }
+    else {
 			console.log(role);
 			res.json(role);
 		}
@@ -74,7 +79,9 @@ router.put('/:roleId',function(req,res,next){
               if(err){
                   console.log(err);
                   return next(err);
-              }else{
+              }
+      // If there's an error, console and return the error.
+              else{
                   console.log(role);
                   res.json(role);
               }
@@ -96,4 +103,4 @@ router.delete('/:roleId',function(req,res,next){
   });
 });
 
-module.exports = router;
+module.exports = router; // export the router
