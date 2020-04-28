@@ -54,38 +54,38 @@ export const AppRoutes: Routes = [
 			{
 				path: 'users',
 				component: UserListComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: 'users/:userId',
 				component: UserDetailsComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: 'security-questions',
 				component: SecurityQuestionListComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: 'security-questions/:questionId',
 				component: SecurityQuestionDetailComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: 'security-questions/create/new',
 				component: SecurityQuestionCreateComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: "purchases-graph",
 				component: PurchasesByServiceComponent,
 				canActivate: [RoleGuard]
-      },
-      {
-        path: 'service',
-        component: ServiceRepairComponent,
-        canActivate: [SessionGuard]
-      },
+			},
+			{
+				path: 'service',
+				component: ServiceRepairComponent,
+				canActivate: [RoleGuard]
+			},
 			{
 				path: "invoice-summary",
 				component: InvoiceSummaryDialogComponent
@@ -104,12 +104,12 @@ export const AppRoutes: Routes = [
 				path: "roles/:roleId",
 				component: RoleDetailComponent,
 				canActivate: [RoleGuard]
-      },
-      {
-        path: 'admin',
-        component: AdminComponent,
-        canActivate: [RoleGuard]
-      }
+			},
+			{
+				path: 'admin',
+				component: AdminComponent,
+				canActivate: [RoleGuard]
+			}
 		]
 	},
 	{
