@@ -19,6 +19,7 @@ export class UserDetailsComponent implements OnInit {
 	user: any;
 	userId: string;
 	form: FormGroup;
+	roles: any;
 	isAdmin: boolean;
 
 	constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private router: Router) {
