@@ -20,12 +20,20 @@ export class UserDetailsComponent implements OnInit {
 	userId: string;
 	form: FormGroup;
 	roles: any;
+	isAdmin: boolean;
 
 	constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private router: Router) {
 		this.userId = this.route.snapshot.paramMap.get('userId');
 
 		this.http.get('/api/users/' + this.userId).subscribe(res => {
 			this.user = res;
+
+			if (this.user.role === 'admin') {
+				this.isAdmin = true;
+			} else {
+				this.isAdmin = false;
+			}
+
 		}, err => {
 			console.log(err);
 		}, () => {
