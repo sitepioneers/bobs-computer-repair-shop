@@ -8,11 +8,25 @@
 				<button class="logo" routerLink="/" mat-button>BCRS</button>
 			</button>
 
-			<button class="navbar-link" routerLink="/" mat-button>Home</button>
-			<button class="navbar-link" routerLink="/about" mat-button>About</button>
-      <button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
-      <button *ngIf="username" class="navbar-link" routerLink="/service" mat-button>Services</button>
+      <button mat-button class="toolbar__icon-button mat-button">
+      <mat-icon>home</mat-icon>
+      <button class="navbar-link" routerLink="/" mat-button>Home</button>
+      </button>
 
+      <button mat-button class="toolbar__icon-button mat-button">
+      <mat-icon>info</mat-icon>
+      <button class="navbar-link" routerLink="/about" mat-button>About</button>
+      </button>
+
+      <button mat-button class="toolbar__icon-button mat-button">
+      <mat-icon> contact_mail</mat-icon>
+      <button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
+      </button>
+
+      <button *ngIf="username" mat-button class="toolbar__icon-button mat-button">
+      <mat-icon>computer</mat-icon>
+      <button class="navbar-link" routerLink="/service" mat-button>Services</button>
+      </button>
 
 			<div fxFlex></div>
 
