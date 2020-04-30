@@ -15,7 +15,7 @@
                           placeholder="Last name"/>
                   </mat-form-field>
                   <!-- map roles to users portion -->
-                  <mat-form-field>
+                  <mat-form-field *ngIf="isAdmin">
                       <mat-select [formControl]="form.controls['role']"
                               placeholder="Role">
                               <mat-option *ngFor="let role of roles"

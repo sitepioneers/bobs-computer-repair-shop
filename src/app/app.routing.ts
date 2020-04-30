@@ -33,6 +33,7 @@ import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailComponent } from './pages/role-detail/role-detail.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const AppRoutes: Routes = [
 	{
@@ -52,9 +53,14 @@ export const AppRoutes: Routes = [
 				component: ContactComponent
 			},
 			{
+				path: 'user/profile/:username',
+				component: ProfileComponent,
+				canActivate: [SessionGuard]
+			},
+			{
 				path: 'users',
 				component: UserListComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: 'users/:userId',
@@ -64,28 +70,28 @@ export const AppRoutes: Routes = [
 			{
 				path: 'security-questions',
 				component: SecurityQuestionListComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: 'security-questions/:questionId',
 				component: SecurityQuestionDetailComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: 'security-questions/create/new',
 				component: SecurityQuestionCreateComponent,
-				canActivate: [SessionGuard]
+				canActivate: [RoleGuard]
 			},
 			{
 				path: "purchases-graph",
 				component: PurchasesByServiceComponent,
-				canActivate: [RoleGuard]
-      },
-      {
-        path: 'service',
-        component: ServiceRepairComponent,
-        canActivate: [SessionGuard]
-      },
+				canActivate: [SessionGuard]
+			},
+			{
+				path: 'service',
+				component: ServiceRepairComponent,
+				canActivate: [SessionGuard]
+			},
 			{
 				path: "invoice-summary",
 				component: InvoiceSummaryDialogComponent
@@ -104,12 +110,12 @@ export const AppRoutes: Routes = [
 				path: "roles/:roleId",
 				component: RoleDetailComponent,
 				canActivate: [RoleGuard]
-      },
-      {
-        path: 'admin',
-        component: AdminComponent,
-        canActivate: [RoleGuard]
-      }
+			},
+			{
+				path: 'admin',
+				component: AdminComponent,
+				canActivate: [RoleGuard]
+			}
 		]
 	},
 	{

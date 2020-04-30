@@ -4,7 +4,8 @@
 
 .mat-elevation-z8 {
 	max-width: 500px;
-	padding: 95px;
+  padding: 95px;
+  margin: auto;
 
 }
 .mat-card-actions {

@@ -8,33 +8,44 @@
 				<button class="logo" routerLink="/" mat-button>BCRS</button>
 			</button>
 
-			<button class="navbar-link" routerLink="/" mat-button>Home</button>
-			<button class="navbar-link" routerLink="/about" mat-button>About</button>
-      <button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
-      <button *ngIf="signedIn" class="navbar-link" routerLink="/service" mat-button>Services</button>
+      <button mat-button class="toolbar__icon-button mat-button">
+      <mat-icon>home</mat-icon>
+      <button class="navbar-link" routerLink="/" mat-button>Home</button>
+      </button>
 
+      <button mat-button class="toolbar__icon-button mat-button">
+      <mat-icon>info</mat-icon>
+      <button class="navbar-link" routerLink="/about" mat-button>About</button>
+      </button>
+
+      <button mat-button class="toolbar__icon-button mat-button">
+      <mat-icon> contact_mail</mat-icon>
+      <button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
+      </button>
+
+      <button *ngIf="username" mat-button class="toolbar__icon-button mat-button">
+      <mat-icon>computer</mat-icon>
+      <button class="navbar-link" routerLink="/service" mat-button>Services</button>
+      </button>
 
 			<div fxFlex></div>
 
-			<!-- User Profile -->
-			<!--<button *ngIf="!signedIn" class="toolbar__icon-button" mat-icon-button>
-				<mat-icon routerLink="/session/signin">account_circle</mat-icon>
-			</button> -->
-
-			<div *ngIf="signedIn">
+			<div *ngIf="username">
 				<button class="toolbar__icon-button" [matMenuTriggerFor]="menu" mat-icon-button>
 					<mat-icon>account_circle</mat-icon>
 				</button>
 				<mat-menu #menu="matMenu">
 					<button mat-menu-item>
 						<mat-icon>exit_to_app</mat-icon>
-            <span routerLink="/session/signout" mat-button (click)="signOut()">Sign out</span>
-          </button>
-          <div>
-          <button *ngIf="signedIn" class="navbar-link" routerLink="/security-questions" mat-button>Security Questions</button></div>
-          <div><button *ngIf="signedIn" class="navbar-link" routerLink="/admin" mat-button>Admin Dashboard</button></div>
-          <div><button *ngIf="signedIn" class="navbar-link" routerLink="/roles" mat-button>Roles Configuration</button></div>
-          <div><button *ngIf="signedIn" class="navbar-link" routerLink="/users" mat-button>Users Creation</button></div>
+						<span routerLink="/session/signout" mat-button (click)="signOut()">Sign out</span>
+					</button>
+					<div>
+						<button mat-menu-item *ngIf="username" class="navbar-link" routerLink="/user/profile/{{username}}">My Profile</button>
+						<button mat-menu-item *ngIf="isAdmin" class="navbar-link" routerLink="/admin">Admin Dashboard</button>
+						<button mat-menu-item *ngIf="isAdmin" class="navbar-link" routerLink="/security-questions">Security Questions</button>
+						<button mat-menu-item *ngIf="isAdmin" class="navbar-link" routerLink="/roles">Roles Configuration</button>
+						<button mat-menu-item *ngIf="isAdmin" class="navbar-link" routerLink="/users">Users Creation</button>
+					</div>
 				</mat-menu>
 			</div>
 		</div>

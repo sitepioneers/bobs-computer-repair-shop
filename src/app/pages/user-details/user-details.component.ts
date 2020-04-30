@@ -20,12 +20,20 @@ export class UserDetailsComponent implements OnInit {
 	userId: string;
 	form: FormGroup;
 	roles: any;
+	isAdmin: boolean;
 
 	constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private router: Router) {
 		this.userId = this.route.snapshot.paramMap.get('userId');
 
 		this.http.get('/api/users/' + this.userId).subscribe(res => {
 			this.user = res;
+
+			if (this.user.role === 'admin') {
+				this.isAdmin = true;
+			} else {
+				this.isAdmin = false;
+			}
+
 		}, err => {
 			console.log(err);
 		}, () => {
@@ -36,14 +44,14 @@ export class UserDetailsComponent implements OnInit {
 			this.form.controls.email.setValue(this.user.email);
 			this.form.controls.role.setValue(this.user.role);
 			this.form.controls.securityQuestions.setValue(this.user.securityQuestions);
-      console.log(this.form.controls.securityQuestions);
-      // map roles to users update
-      this.http.get('/api/roles').subscribe(res => {
-        this.roles = res;
-        console.log(this.roles);
-      }, err => {
-        console.log(err);
-      })
+			console.log(this.form.controls.securityQuestions);
+			// map roles to users update
+			this.http.get('/api/roles').subscribe(res => {
+				this.roles = res;
+				console.log(this.roles);
+			}, err => {
+				console.log(err);
+			})
 		});
 	}
 

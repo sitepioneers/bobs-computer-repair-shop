@@ -1,16 +1,23 @@
-<mat-card class='dashboard'>
-  <mat-card-title style="text-align: center; font-size: 25px; font-weight: lighter;"
-      class="mat-headline">Admin Dashboard
-  </mat-card-title>
-  <br />
+<mat-card-title style="text-align: center; font-size: 35px; font-weight: bolder;"
+class="mat-headline">Admin Dashboard
+</mat-card-title>
+<br><br>
 
-  <mat-card-content style='text-align: center;'>
+<mat-card class='dashboard'>
+  <mat-card-content>
+    <mat-icon>verified_user</mat-icon>
     <button class="admin-link" routerLink="/users" mat-button>Users</button>
     <br />
+    <br>
+    <mat-icon>supervised_user_circle</mat-icon>
     <button class="admin-link" routerLink="/roles" mat-button>Roles</button>
     <br />
+    <br>
+    <mat-icon>fingerprint</mat-icon>
     <button class="admin-link" routerLink="/security-questions" mat-button>Security Questions</button>
     <br />
+    <br>
+    <mat-icon>data_usage</mat-icon>
     <button class="admin-link" routerLink="/purchases-graph" mat-button>Purchases Graph</button>
   </mat-card-content>
 </mat-card>

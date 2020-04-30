@@ -63,6 +63,7 @@ import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailComponent } from './pages/role-detail/role-detail.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
 	declarations: [
@@ -95,7 +96,8 @@ import { ServiceRepairComponent } from './pages/service-repair/service-repair.co
 		RoleCreateComponent,
 		RoleDetailComponent,
 		AdminComponent,
-		ServiceRepairComponent
+		ServiceRepairComponent,
+		ProfileComponent
 	],
 	entryComponents: [
 		UserDeleteDialogComponent,
