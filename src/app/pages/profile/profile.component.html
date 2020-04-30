@@ -1,7 +1,11 @@
+<div fxFlex="column">
+  <mat-card class="mat-elevation-z8">
+
 <mat-card-actions style="float: right;">
 	<button mat-raised-button color="primary"><a style="color: #fff; text-decoration: none;" routerLink="/users/{{ userId }}">Update your
 			profile</a></button><br /><br />
 </mat-card-actions>
+
 
 <h3>{{ firstName }} {{ lastName }}</h3>
 <div>{{ address }}</div><br />
@@ -9,3 +13,6 @@
 <div><span class="label">Email:</span> {{ email }}</div>
 <div><span class="label">Role:</span> {{ roles }}</div>
 <br /><br />
+
+</mat-card>
+</div>

@@ -1,0 +1,17 @@
+.title {
+  height: 100%;
+  margin-top: 25px;
+}
+
+
+h1 {
+  padding: 3px;
+  background-color: #4556A9;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.mat-elevation-z8 {
+  margin: auto;
+}

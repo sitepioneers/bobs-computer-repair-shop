@@ -1,11 +1,22 @@
-<h1 style="font-weight: lighter; text-align: center;">Welcome to the Service Repair Page.</h1>
+<div fxFlex="column">
+  <mat-card class="mat-elevation-z8">
+<div class="main-welcome container" style="width: 65%; margin: 0 auto; padding-top: 11px;">
+  <h1 class="title">
+    Welcome to the Service Repair
+</h1>
+</div>
+<div>
+  <img class='-image' src='../../../assets/service.jpg' alt="computer repair person: atrribute freepik for images" style="width:500px;height:350px;display:block;
+  margin-left:auto;margin-right:auto;">
+</div>
+<br>
 <mat-card class="mat-elevation-z0" style="width: 65%; margin: 0 auto;">
   <form #serviceRepairForm="ngForm" (ngSubmit)="submit(serviceRepairForm.value); serviceRepairForm.reset();">
     <mat-card-content>
       <!-- service repair -->
       <div fxLayout="column">
         <h4 fxFlex>Services</h4>
-
+        <br>
        <div ngModelGroup="checkGroup" *ngFor="let service of services">
           <mat-checkbox name="{{service.id}}" ngModel>
             {{service.title}} ({{service.price | currency}})
@@ -21,6 +32,7 @@
       <!-- parts & labor -->
       <div fxLayout="column">
         <h4 fxFlex>Standard Fees</h4>
+        <br>
         <mat-form-field fxFlex style="width: 300px !important;">
           <input matInput
                  name="parts"
@@ -40,11 +52,13 @@
     <br/><br/>
     <mat-divider></mat-divider>
     <br/><br/>
-    <mat-card-actions align="end">
+    <mat-card-actions align="end" style="margin-bottom: 40px;
+    ">
       <button mat-raised-button type="reset" color="warn">Cancel</button>
-      <button mat-raised-button color="accent">Submit</button>
+      <button mat-raised-button color="primary">Submit</button>
     </mat-card-actions>
   </form>
 </mat-card>
+</mat-card>
+</div>
 
-<br><br><br>
