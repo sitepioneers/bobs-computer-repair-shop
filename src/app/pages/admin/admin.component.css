@@ -1,9 +1,10 @@
 .dashboard {
-  margin: 100px;
+  margin: auto;
+  width: 35%;
+  position: relative;
 }
 
 .admin-link {
-  text-align: center;
   font-size: 24px;
   margin: 0 auto;
 }
