@@ -36,7 +36,7 @@
               </div>
 
               <mat-form-field>
-                  <input matInput type='text' name='message' placeholder='Message' [(ngModel)]='messageInfo.message' #message='ngModel' required minlength='20'>
+                  <input matInput type='text' name='message' placeholder='Message' [(ngModel)]='messageInfo.message' #message='ngModel' required minlength='2'>
               </mat-form-field>
 
               <div class='error' [hidden]='message.valid || message.pristine'>
