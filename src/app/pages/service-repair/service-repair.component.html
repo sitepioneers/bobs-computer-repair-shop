@@ -1,17 +1,18 @@
+<div fxFlex="column">
+  <mat-card class="mat-elevation-z8">
 <div class="main-welcome container" style="width: 65%; margin: 0 auto; padding-top: 11px;">
   <h1 class="title">
-    Welcome to the Service Repair<br />
-
-  </h1>
+    Welcome to the Service Repair
+</h1>
 </div>
-
+<br>
 <mat-card class="mat-elevation-z0" style="width: 65%; margin: 0 auto;">
   <form #serviceRepairForm="ngForm" (ngSubmit)="submit(serviceRepairForm.value); serviceRepairForm.reset();">
     <mat-card-content>
       <!-- service repair -->
       <div fxLayout="column">
         <h4 fxFlex>Services</h4>
-
+        <br>
        <div ngModelGroup="checkGroup" *ngFor="let service of services">
           <mat-checkbox name="{{service.id}}" ngModel>
             {{service.title}} ({{service.price | currency}})
@@ -27,6 +28,7 @@
       <!-- parts & labor -->
       <div fxLayout="column">
         <h4 fxFlex>Standard Fees</h4>
+        <br>
         <mat-form-field fxFlex style="width: 300px !important;">
           <input matInput
                  name="parts"
@@ -52,5 +54,5 @@
     </mat-card-actions>
   </form>
 </mat-card>
-
-<br><br><br>
+</mat-card>
+</div>
