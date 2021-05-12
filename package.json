@@ -27,7 +27,7 @@
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "express": "^4.17.1",
     "hammerjs": "^2.0.8",
     "mongoose": "^5.9.10",
